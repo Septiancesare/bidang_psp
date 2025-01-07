@@ -1,19 +1,21 @@
 <footer>
+
     <!-- Container footer utama dengan background hijau -->
-    <div class="footer bg-green-700 w-full">
-        <div class="container flex justify-around p-10">
+    <div class="footer bg-green-800 w-full bg-gradient-to-t from-black/40 to-transparent">
+
+        <div class="container xl:flex justify-around p-10">
 
             <!-- Bagian peta dan alamat -->
-            <div class="maps flex gap-10">
+            <div class="maps md:flex gap-10 mb-4">
                 <!-- Iframe Google Maps lokasi kantor -->
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7918.443646452179!2d110.90609079148689!3d-7.100269821612002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70b0024a374845%3A0xded1864b89e3ed21!2sDinas%20Pertanian%20Grobogan!5e0!3m2!1sid!2sid!4v1735725385503!5m2!1sid!2sid"
                     width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade" class="rounded-lg "></iframe>
+                    referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shrink"></iframe>
 
                 <!-- Konten alamat dengan logo dan detail -->
                 <div class="alamat-footer text-white">
-                    <div class="address-text flex gap-5">
+                    <div class="address-text flex gap-5 ">
                         <!-- Ikon lokasi -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="24" height="24"
                             fill="#FFFFFF">
@@ -39,11 +41,13 @@
             <!-- Bagian menu layanan -->
             <div class="layanan">
                 <strong>
-                    <h3 class="text-bold text-white text-xl">Layanan</h3>
+                    <h3 class="text-bold text-white text-xl py-2 px-3 border-l-4 mb-4 bg-green-900 rounded-lg">
+                        Layanan
+                    </h3>
                 </strong>
-                <hr class="mb-3 mt-3">
+                {{-- <hr class="mb-3 mt-3"> --}}
                 <!-- Daftar menu layanan -->
-                <ul class="flex flex-col gap-4 text-white">
+                <ul class="flex flex-col gap-4 text-white mb-4">
                     <li><a href="" class="nav-link">Informasi</a></li>
                     <li><a href="" class="nav-link">Program</a></li>
                     <li><a href="" class="nav-link">FAQ</a></li>
@@ -54,28 +58,32 @@
             <!-- Bagian link terkait -->
             <div class="link">
                 <strong>
-                    <h3 class="text-bold text-white text-xl">Link Terkait</h3>
+                    <h3 class="text-bold text-white text-xl py-2 px-3 border-l-4 mb-4 bg-green-900 rounded-lg">Link
+                        Terkait</h3>
                 </strong>
-                <hr class="mb-3 mt-3">
+                {{-- <hr class="mb-3 mt-3"> --}}
                 <!-- Daftar link website terkait -->
-                <ul class="flex flex-col gap-4 text-white">
+                <ul class="flex flex-col gap-4 text-white mb-4">
                     <li><a href="http://dinpertan.grobogan.go.id/" class="nav-link" target="_blank">Dinas Pertanian
                             Grobogan</a></li>
                     <li><a href="https://distanbun.jatengprov.go.id/" class="nav-link" target="_blank">Dinas Pertanian
                             Jawa Tengah</a></li>
                     <li><a href="https://jatengprov.go.id/" class="nav-link" target="_blank">Pemerintah Jawa Tengah</a>
                     </li>
+                    <li><a href="https://psp.pertanian.go.id/" class="nav-link" target="_blank">Direktorat Jenderal PSP
+                            RI</a></li>
                     <li><a href="https://www.pertanian.go.id/" class="nav-link" target="_blank">Kementrian Pertanian
                             RI</a></li>
                 </ul>
+
             </div>
 
             <!-- Bagian sosial media -->
             <div class="sosial-media">
                 <strong>
-                    <h3 class="text-white text-xl">Sosial Media</h3>
+                    <h3 class="text-white text-xl py-2 px-3 border-l-4 mb-4 bg-green-900 rounded-lg">Sosial Media</h3>
                 </strong>
-                <hr class="mb-3 mt-3">
+                {{-- <hr class="mb-3 mt-3"> --}}
                 <!-- Daftar link sosial media dengan ikon -->
                 <ul class="flex flex-col gap-4 text-white">
                     <!-- Link Facebook -->
