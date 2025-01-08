@@ -15,6 +15,22 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
     @endif
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+        .dm-serif-text-regular {
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .dm-serif-text-regular-italic {
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body class="overflow-x-hidden ">

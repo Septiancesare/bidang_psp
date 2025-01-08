@@ -11,3 +11,7 @@ Route::get('/program', function () {
 Route::get('/profile-psp', function () {
     return view('profile-bidang');
 })->name('profile');
+
+Route::get('/news', function () {
+    return view('news-page');
+})->name('newspage');

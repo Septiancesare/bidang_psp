@@ -14,15 +14,15 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         <!-- Sliding Text -->
         <div id="text-slider" class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-100"
+            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"
                 data-index="1">
                 Bidang Penyuluhan, Sarana dan Prasarana Pertanian
             </h1>
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0"
+            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0 carter-one-regular"
                 data-index="2">
                 Dinas Pertanian Kabupaten Grobogan
             </h1>
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0"
+            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0 carter-one-regular"
                 data-index="3">
                 Bersama Menuju Pertanian Berkelanjutan
             </h1>
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Content Section -->
-    <div class="container mx-auto my-10">
+    <div class="container mx-auto my-10 ">
         {{-- Section for profile company  --}}
         <div class="profile-bidang text-center mx-12">
             <header class="font-bold" id="profile-bidang">
@@ -193,78 +193,7 @@
                     </div>
                 </div>
 
-                {{-- Card staff line 2  --}}
-                <div class="management-line md:flex justify-center gap-10">
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                </div>
 
-                {{-- Card staff line 3  --}}
-                <div class="management-line lg:flex lg:justify-center gap-10">
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                        </div>
-                    </div>
-
-
-                </div>
                 {{-- Card staff line 3  --}}
                 <div class="management-line md:flex justify-center gap-10">
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
@@ -273,7 +202,7 @@
                             <h2 class="font-bold">
                                 Dr.Ir. Eng. George, Phd.
                             </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p>Kepala Seksi 1</p>
                         </div>
                     </div>
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
@@ -282,7 +211,7 @@
                             <h2 class="font-bold">
                                 Dr.Ir. Eng. George, Phd.
                             </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p>Kepala Seksi 2</p>
                         </div>
                     </div>
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
@@ -291,7 +220,7 @@
                             <h2 class="font-bold">
                                 Dr.Ir. Eng. George, Phd.
                             </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p>Kepala Seksi 3</p>
                         </div>
                     </div>
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
@@ -300,7 +229,7 @@
                             <h2 class="font-bold">
                                 Dr.Ir. Eng. George, Phd.
                             </h2>
-                            <p>Staff Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p>Kepala Seksi 4</p>
                         </div>
                     </div>
                 </div>
@@ -400,6 +329,16 @@
         modal.style.display = "none";
     }
 </script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+    .carter-one-regular {
+        font-family: "Carter One", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+</style>
 
 <style>
     /* Container untuk modal */
