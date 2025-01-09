@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     {{-- image header  --}}
     <div class="header relative h-96  w-full overflow-hidden">
         <div class="image-header  inset-0">
@@ -162,4 +162,4 @@
 
     </div>
 
-</x-guest-layout>
+</x-app-layout>

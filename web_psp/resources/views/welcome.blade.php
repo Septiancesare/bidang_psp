@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <!-- Hero Section -->
     <div class="relative h-96  w-full overflow-hidden">
         <!-- Hero Images -->
@@ -14,15 +14,15 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         <!-- Sliding Text -->
         <div id="text-slider" class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"
+            <h1 class="text-white text-5xl  font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"
                 data-index="1">
                 Bidang Penyuluhan, Sarana dan Prasarana Pertanian
             </h1>
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0 carter-one-regular"
+            <h1 class="text-white text-5xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0 carter-one-regular"
                 data-index="2">
                 Dinas Pertanian Kabupaten Grobogan
             </h1>
-            <h1 class="text-white text-4xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0 carter-one-regular"
+            <h1 class="text-white text-5xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0 carter-one-regular"
                 data-index="3">
                 Bersama Menuju Pertanian Berkelanjutan
             </h1>
@@ -46,7 +46,8 @@
                     Grobogan</h3>
             </header>
             <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7  ">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet cupiditate dolorem aut fugit
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet cupiditate dolorem aut
+                    fugit
                     soluta quod, provident consequatur sunt iure quaerat dolores suscipit doloribus odit a quasi!
                     Facilis nostrum veniam sed porro consequatur eum fugiat, quo iure eveniet possimus eos mollitia quia
                     laudantium magnam quasi quibusdam ipsa labore veritatis repellat doloremque. Molestias iste nesciunt
@@ -266,12 +267,16 @@
                                 ...
 
                             </div>
+
+                            <div class="date-news">
+                                <p class="text-green-500 text-sm ">2025-01-24</p>
+                            </div>
                         </div>
                     </div>
                 </a>
 
                 <div class="button-more-news flex justify-center">
-                    <a href="#"
+                    <a href="{{ route('newspage') }}"
                         class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Berita
                         Selengkapnya</a>
                 </div>
@@ -279,7 +284,7 @@
 
             </div>
         </div>
-</x-guest-layout>
+</x-app-layout>
 
 
 {{-- Script Slider --}}

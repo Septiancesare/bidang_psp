@@ -1,5 +1,5 @@
 <!-- Layout utama menggunakan guest layout -->
-<x-guest-layout>
+<x-app-layout>
     <!-- Container utama dengan padding dan margin -->
     <div class="container program-page py-2 lg:px-28">
         <!-- Card program dengan background abu-abu dan bayangan -->
@@ -114,7 +114,7 @@
                         <h2>B. Subkoor Sarana dan Prasarana</h2>
                     </strong>
                 </div>
-                
+
                 <div class="sarpras-content">
                     <!-- Container program sarpras dengan flex layout -->
                     <div class="sarpras-program lg:flex justify-evenly ">
@@ -192,7 +192,7 @@
 
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>
 
 <style>
     .title {

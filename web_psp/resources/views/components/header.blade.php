@@ -1,5 +1,5 @@
 <header
-    class="bg-green-800 p-2 text-white tracking-wider lg:flex justify-between lg:px-20 items-center bg-gradient-to-t from-black/50 to-transparent">
+    class="bg-green-800 p-2 text-white tracking-wider lg:flex justify-between lg:px-20 items-center bg-gradient-to-t from-black/50 to-transparent gap-10">
     <!-- Bagian header yang berisi logo dan judul utama -->
     <div class="header flex justify-center gap-3 ">
         <!-- Logo Kabupaten Grobogan -->
@@ -14,6 +14,8 @@
             <p>Dinas Pertanian Kabupaten Grobogan</p>
         </div>
     </div>
+
+    {{-- navigasi halaman  --}}
     <div class="flex nav items-center justify-center h-10">
         <ul class="flex justify-center border-b-2  border-transparent  gap-6 tracking-wider">
 
@@ -44,7 +46,33 @@
 
 
         </ul>
+
+
     </div>
+
+    {{-- navigasi login register  --}}
+    @if (Route::has('login'))
+        <nav class="-mx-3 flex flex-1 justify-end font-thin">
+            @auth
+                <a href="{{ url('/') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    Dashboard
+                </a>
+            @else
+                <a href="{{ route('login') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300  focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    Log in
+                </a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Register
+                    </a>
+                @endif
+            @endauth
+        </nav>
+    @endif
 </header>
 
 <!-- Running text (teks berjalan) untuk menampilkan jam operasional -->
