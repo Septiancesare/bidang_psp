@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::get('/program', function () {
     return view('program');
 })->name('program');
+
 Route::get('/profile-psp', function () {
     return view('profile-bidang');
 })->name('profile');
@@ -17,6 +18,10 @@ Route::get('/profile-psp', function () {
 Route::get('/news', function () {
     return view('news-page');
 })->name('newspage');
+
+Route::get('/news/read', function () {
+    return view('read-news-page');
+})->name('newspage.read');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

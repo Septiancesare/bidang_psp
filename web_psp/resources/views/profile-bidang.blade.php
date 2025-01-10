@@ -109,8 +109,8 @@
                 <h1>Visi Misi Bidang</h1>
             </div>
             <div class="visi">
-                <div class="title-visi text-center font-bold">
-                    <h2 class="text-2xl">Visi</h2>
+                <div class="title-visi text-center font-bold dm-serif-text-regular">
+                    <h2 class="text-2xl ">Visi</h2>
                 </div>
                 <div class="konten-visi text-justify mx-40 my-3">
                     <p class="">
@@ -134,7 +134,7 @@
             </div>
 
             <div class="misi mx-40 my-10">
-                <div class="title-misi text-center font-bold my-5">
+                <div class="title-misi text-center font-bold my-5 dm-serif-text-regular">
                     <h2 class="text-2xl">Misi</h2>
                 </div>
                 <ol class=" list-decimal ">
