@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ImageUploadController;
 
 
 Route::get('/', function () {
@@ -22,6 +23,9 @@ Route::get('/news', function () {
 Route::get('/news/read', function () {
     return view('read-news-page');
 })->name('newspage.read');
+
+Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

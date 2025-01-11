@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->id('id_news');
+            $table->integer('news_id')->autoIncrement();
             $table->string('title_news');
-            $table->string('content_news');
-            $table->string('creator');
+            $table->string('image_news');
+            $table->text('content_news');
+            $table->string('creator')->default('Admin');
             $table->timestamps();
         });
     }
