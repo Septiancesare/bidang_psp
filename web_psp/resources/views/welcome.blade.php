@@ -70,102 +70,64 @@
                 <span class="close" onclick="closeModal()">&times;</span>
                 <img class="modal-content shadow-xl" id="modalImage">
                 <div class="caption" id="modalCaption"></div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
             </div>
 
             <div class="program my-3 lg:mx-56">
                 <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card ">
+                    <div class="program-card">
                         <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy.png') }}" alt="Dummy Image" class=" hover:zoom"
-                                width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card ">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (2).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
+                            <img src="{{ asset('assets/Dummy Page/dummy.png') }}" alt="Dummy Image 1" class="hover:zoom"
+                                width="400" height="200" onclick="openModal(this, 0)">
                         </div>
                     </div>
                     <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (3).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (2).png') }}" alt="Dummy Image 2"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 1)">
                         </div>
                     </div>
                     <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (4).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (3).png') }}" alt="Dummy Image 3"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 2)">
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (4).png') }}" alt="Dummy Image 4"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 3)">
                         </div>
                     </div>
                 </div>
                 <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card ">
+                    <div class="program-card">
                         <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (5).png') }}" alt="Dummy Image"
-                                class=" hover:zoom" width="400" height="200" onclick="openModal(this)">
+                            <img src="{{ asset('assets/Dummy Page/dummy (5).png') }}" alt="Dummy Image 5"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 4)">
                         </div>
                     </div>
                     <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (6).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (6).png') }}" alt="Dummy Image 6"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 5)">
                         </div>
                     </div>
+                    <div class="program-card">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (7).png') }}" alt="Dummy Image 7"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 6)">
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="image-container overflow-hidden">
+                            <img src="{{ asset('assets/Dummy Page/dummy (8).png') }}" alt="Dummy Image 8"
+                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 7)">
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (8).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                </div>
-                <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card ">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy.png') }}" alt="Dummy Image"
-                                class=" hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card ">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (2).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (3).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (4).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                </div>
-                <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card ">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (5).png') }}" alt="Dummy Image"
-                                class=" hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (6).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container  overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (7).png') }}" alt="Dummy Image"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this)">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="button-more-program flex justify-center">
                     <a href="{{ route('program') }}"
@@ -289,36 +251,87 @@
 
 {{-- Script Slider --}}
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const images = document.querySelectorAll("#hero-slider img");
-        const texts = document.querySelectorAll("#text-slider h1");
-        let currentIndex = 0;
+    let currentIndex = 0;
+    const images = [{
+            src: "{{ asset('assets/Dummy Page/dummy.png') }}",
+            alt: "Dummy Image 1"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (2).png') }}",
+            alt: "Dummy Image 2"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (3).png') }}",
+            alt: "Dummy Image 3"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (4).png') }}",
+            alt: "Dummy Image 4"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (5).png') }}",
+            alt: "Dummy Image 5"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (6).png') }}",
+            alt: "Dummy Image 6"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (7).png') }}",
+            alt: "Dummy Image 7"
+        },
+        {
+            src: "{{ asset('assets/Dummy Page/dummy (8).png') }}",
+            alt: "Dummy Image 8"
+        }
+    ];
 
-        setInterval(() => {
-            // Hide current image
-            images[currentIndex].classList.remove("opacity-100");
-            images[currentIndex].classList.add("opacity-0");
+    function openModal(imgElement, index) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("modalCaption");
 
-            // Hide current text
-            texts[currentIndex].classList.remove("translate-y-0", "opacity-100");
-            texts[currentIndex].classList.add("translate-y-full", "opacity-0");
+        currentIndex = index;
+        modal.style.display = "block";
+        modalImg.src = imgElement.src;
+        captionText.textContent = imgElement.alt;
 
-            // Update index
-            currentIndex = (currentIndex + 1) % images.length;
+        document.addEventListener('keydown', handleKeyPress);
+    }
 
-            // Show next image
-            images[currentIndex].classList.remove("opacity-0");
-            images[currentIndex].classList.add("opacity-100");
+    function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.style.display = "none";
 
-            // Show next text
-            texts[currentIndex].classList.remove("translate-y-full", "opacity-0");
-            texts[currentIndex].classList.add("translate-y-0", "opacity-100");
-        }, 5000); // Change every 5 seconds
-    });
+        document.removeEventListener('keydown', handleKeyPress);
+    }
+
+    function changeImage(step) {
+        currentIndex += step;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("modalCaption");
+
+        modalImg.src = images[currentIndex].src;
+        captionText.textContent = images[currentIndex].alt;
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'ArrowRight') {
+            changeImage(1);
+        } else if (event.key === 'ArrowLeft') {
+            changeImage(-1);
+        }
+    }
 </script>
 
 {{-- Script to open modal image --}}
-<script>
+{{-- <script>
     function openModal(imgElement) {
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImage");
@@ -333,7 +346,7 @@
         const modal = document.getElementById("imageModal");
         modal.style.display = "none";
     }
-</script>
+</script> --}}
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
@@ -349,7 +362,6 @@
     /* Container untuk modal */
     .modal {
         display: none;
-        /* Modal tersembunyi secara default */
         position: fixed;
         z-index: 1000;
         left: 0;
@@ -358,23 +370,19 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.8);
-        /* Latar belakang gelap */
     }
 
-    /* Konten modal */
     .modal-content {
         display: block;
         justify-content: center;
         align-items: center;
         margin: auto;
         max-width: 90%;
-        /* Batas ukuran gambar */
         margin-top: 20px;
         max-height: 90%;
         border-radius: 10px;
     }
 
-    /* Close button */
     .close {
         position: absolute;
         top: 15px;
@@ -393,12 +401,41 @@
         cursor: pointer;
     }
 
-    /* Caption teks */
     .caption {
         text-align: center;
         color: white;
         margin-top: 15px;
         font-size: 16px;
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.3s;
+        border: none;
+        background-color: transparent;
+        z-index: 1002;
+    }
+
+    .prev {
+        left: 15px;
+    }
+
+    .next {
+        right: 15px;
+    }
+
+    .prev:hover,
+    .next:hover {
+        color: #bbb;
     }
 
     .image-container {
