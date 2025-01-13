@@ -251,6 +251,33 @@
 
 {{-- Script Slider --}}
 <script>
+     document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll("#hero-slider img");
+        const texts = document.querySelectorAll("#text-slider h1");
+        let currentIndex = 0;
+
+        setInterval(() => {
+            // Hide current image
+            images[currentIndex].classList.remove("opacity-100");
+            images[currentIndex].classList.add("opacity-0");
+
+            // Hide current text
+            texts[currentIndex].classList.remove("translate-y-0", "opacity-100");
+            texts[currentIndex].classList.add("translate-y-full", "opacity-0");
+
+            // Update index
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Show next image
+            images[currentIndex].classList.remove("opacity-0");
+            images[currentIndex].classList.add("opacity-100");
+
+            // Show next text
+            texts[currentIndex].classList.remove("translate-y-full", "opacity-0");
+            texts[currentIndex].classList.add("translate-y-0", "opacity-100");
+        }, 5000); // Change every 5 seconds
+    });
+
     let currentIndex = 0;
     const images = [{
             src: "{{ asset('assets/Dummy Page/dummy.png') }}",
