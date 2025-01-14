@@ -44,8 +44,8 @@
             </li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('program') }}">Program</a></li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="#">Jurnal</a></li>
+            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('anouncement') }}">Informasi</a></li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="#">Download</a></li>
-            <li class="nav-item p-2 hover:bg-green-800"><a href="#">Kontak</a></li>
         </ul>
         <!-- Mobile Menu -->
         <ul id="mobile-menu"

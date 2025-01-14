@@ -13,6 +13,10 @@ Route::get('/program', function () {
     return view('program');
 })->name('program');
 
+Route::get('/informasi', function () {
+    return view('anouncement');
+})->name('anouncement');
+
 Route::get('/profile-psp', function () {
     return view('profile-bidang');
 })->name('profile');

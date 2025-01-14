@@ -3,7 +3,7 @@
     <!-- Container utama dengan padding dan margin -->
     <!-- Judul utama program -->
     <div
-        class="title sm:2xl md:text-3xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 h-72 ">
+        class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 h-72 ">
         <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
     </div>
     <div class="container program-page py-2 lg:px-28">
@@ -90,7 +90,7 @@
                         </div>
                         <!-- Konten sasaran 1: Peningkatan Kelas -->
                         <div class="sasaran-content my-2">
-                            <h3 class="text-lg ">1. Peningkatan Kelas Kelompok Tani</h3>
+                            <h3 class="text-lg">1. Peningkatan Kelas Kelompok Tani</h3>
                             <p>Strategi : </p>
                             <img src="{{ asset('assets/strategi peningkatan kelas tani.png') }}"
                                 alt="strategi peningkatan kelas tani">
