@@ -16,38 +16,70 @@
     </div>
 
     {{-- navigasi halaman  --}}
-    <div class="flex nav items-center justify-center h-10">
-        <ul class="flex justify-center border-b-2  border-transparent  gap-6 tracking-wider">
+    <div class="flex nav items-center lg:justify-center h-10">
+        <button id="menu-toggle" class="block md:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
 
-            <li class="nav-item p-2  hover:bg-green-800 "><a href="{{ route('welcome') }}">Beranda</a></li>
-
-            <li class="nav-item p-2">
-                <a href="" class="flex gap-2">
+        <ul class="hidden md:flex items-center gap-6 tracking-wider z-10">
+            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('welcome') }}">Beranda</a></li>
+            <li class="relative group">
+                <a href="#" class="nav-item flex items-center gap-2 p-2 hover:bg-green-800">
                     Profile
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="10" fill="#ffffff">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
                         <path
                             d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                     </svg>
                 </a>
-                <ul>
-                    <li><a href="{{ route('profile') }}">Profil Bidang</a></li>
-                    <li><a href="#visi-misi">Visi Misi</a></li>
-                    <li><a href="#  staff">Staff</a></li>
+                <!-- Dropdown Menu -->
+                <ul class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap">
+                    <li><a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-200">Profil Bidang</a>
+                    </li>
+                    <li><a href="#visi-misi" class="block px-4 py-2 hover:bg-gray-200">Visi Misi</a></li>
+                    <li><a href="#staff" class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
                 </ul>
             </li>
-
-
             <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('program') }}">Program</a></li>
-
-
             <li class="nav-item p-2 hover:bg-green-800"><a href="#">Jurnal</a></li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="#">Download</a></li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="#">Kontak</a></li>
-
-
+        </ul>
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu"
+            class="hidden absolute top-16 left-0 w-full bg-green-700 text-white flex-col gap-4 p-5 md:hidden bg-gradient-to-t from-black/50 to-transparent">
+            <li class="nav-item"><a href="{{ route('welcome') }}">Beranda</a></li>
+            <li class="nav-item">
+                <a href="#" class="flex justify-between items-center">
+                    Profile
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
+                        <path
+                            d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                    </svg>
+                </a>
+                <!-- Dropdown for Mobile -->
+                <ul class="ml-5 mt-2">
+                    <li><a href="{{ route('profile') }}" class="block">Profil Bidang</a></li>
+                    <li><a href="#visi-misi" class="block">Visi Misi</a></li>
+                    <li><a href="#staff" class="block">Staff</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="{{ route('program') }}">Program</a></li>
+            <li class="nav-item"><a href="#">Jurnal</a></li>
+            <li class="nav-item"><a href="#">Download</a></li>
+            <li class="nav-item"><a href="#">Kontak</a></li>
         </ul>
 
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
 
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>
     </div>
 
     {{-- navigasi login register  --}}
@@ -100,7 +132,7 @@
                             <!-- Hamburger -->
                             <div class="-me-2 flex items-center sm:hidden">
                                 <button @click="open = ! open"
-                                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -121,8 +153,8 @@
                         <!-- Responsive Settings Options -->
                         <div class="pt-4 pb-1 border-t border-gray-200">
                             <div class="px-4">
-                                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                                <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+                                <div class="font-medium text-sm text-white">{{ Auth::user()->email }}</div>
                             </div>
 
                             <div class="mt-3 space-y-1">

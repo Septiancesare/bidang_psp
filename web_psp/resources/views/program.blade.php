@@ -1,14 +1,14 @@
 <!-- Layout utama menggunakan guest layout -->
 <x-app-layout>
     <!-- Container utama dengan padding dan margin -->
+    <!-- Judul utama program -->
+    <div
+        class="title sm:2xl md:text-3xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 h-72 ">
+        <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
+    </div>
     <div class="container program-page py-2 lg:px-28">
         <!-- Card program dengan background abu-abu dan bayangan -->
         <div class="program p-2 m-3  bg-slate-100 rounded-lg  shadow-xl ">
-            <!-- Judul utama program -->
-            <div
-                class="title sm:2xl md:text-3xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 rounded-t-xl h-60 ">
-                <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
-            </div>
 
             <!-- Bagian A: Subkoor Penyuluhan -->
             <div class="penyuluhan mx-20">

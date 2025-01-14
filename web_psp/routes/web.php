@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ImageUploadController;
 
@@ -16,9 +17,11 @@ Route::get('/profile-psp', function () {
     return view('profile-bidang');
 })->name('profile');
 
-Route::get('/news', function () {
-    return view('news-page');
-})->name('newspage');
+// Route::get('/news', function () {
+//     return view('news-page');
+// })->name('newspage');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news-page.read');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
 Route::get('/news/read', function () {
     return view('read-news-page');

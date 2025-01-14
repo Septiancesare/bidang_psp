@@ -14,19 +14,20 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         <!-- Sliding Text -->
         <div id="text-slider" class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <h1 class="text-white text-5xl  font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"
+            <h1 class="text-white text-xl lg:text-5xl  font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"
                 data-index="1">
                 Bidang Penyuluhan, Sarana dan Prasarana Pertanian
             </h1>
-            <h1 class="text-white text-5xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0 carter-one-regular"
+            <h1 class="text-white text-xl lg:text-5xl font-bold transform transition-transform duration-1000 translate-y-0 opacity-0 carter-one-regular"
                 data-index="2">
                 Dinas Pertanian Kabupaten Grobogan
             </h1>
-            <h1 class="text-white text-5xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0 carter-one-regular"
+            <h1 class="text-white text-xl lg:text-5xl font-bold transform transition-transform duration-1000 translate-y-full opacity-0 carter-one-regular"
                 data-index="3">
                 Bersama Menuju Pertanian Berkelanjutan
             </h1>
-            <h2 class="text-white italic mt-10 tracking-wider text-xl font-thin">"Supporting Farmers with Modern
+            <h2 class="text-white italic mt-10 tracking-wider text-md lg:text-xl font-thin">"Supporting Farmers with
+                Modern
                 Knowledge and
                 Reliable
                 Facilities"</h2>
@@ -208,7 +209,7 @@
             <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
 
                 {{-- News Card  --}}
-                <a href="">
+                <a href="{{ route('newspage.read') }}">
                     <div
                         class="news-card w-full bg-slate-50 p-3 flex text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
                         {{-- image section news card  --}}
@@ -238,7 +239,7 @@
                 </a>
 
                 <div class="button-more-news flex justify-center">
-                    <a href="{{ route('newspage') }}"
+                    <a href="{{ route('news.index') }}"
                         class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Berita
                         Selengkapnya</a>
                 </div>
@@ -251,7 +252,7 @@
 
 {{-- Script Slider --}}
 <script>
-     document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
         const images = document.querySelectorAll("#hero-slider img");
         const texts = document.querySelectorAll("#text-slider h1");
         let currentIndex = 0;
@@ -482,8 +483,6 @@
     .image-container img:hover {
         transform: scale(1.2);
     }
-
-
 
     .management-line {
         margin-top: 1.2rem;

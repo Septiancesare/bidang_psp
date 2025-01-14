@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container mx-10 lg:mx-32 my-3">
+    <div class="mx-10 lg:mx-32 my-3">
         <div class="title-news text-2xl  w-full font-bold">
             <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore repudiandae eum nobis ad, corporis vel
                 unde nam illo placeat quis illum architecto similique, amet, provident libero consequatur! Rem, optio
@@ -24,6 +24,7 @@
                 <img src="{{ asset('assets/Dummy Page/dummy (5).png') }}" alt="" class="rounded-md">
             </div>
 
+            <br>
             <div class="h2 font-bold text-lg">
                 <h2>H2 Title</h2>
             </div>
