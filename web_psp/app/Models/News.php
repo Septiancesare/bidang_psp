@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $table = 'news';
-    protected $primaryKey = 'id_news';
+    protected $primaryKey = 'news_id';
     public $incrementing = true;
     protected $keyType = 'int';
 
     protected $fillable = [
-        'id_news',
+        'news_id',
         'title_news',
         'image_news',
         'content_news',

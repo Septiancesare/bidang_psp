@@ -11,6 +11,14 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+
+                <div class="button-to-landingpage">
+                    <a href="{{route('welcome')}}">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Go to Landing Page
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,14 +1,13 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ImageUploadController;
+use App\Models\News;
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
 Route::get('/program', function () {
     return view('program');
 })->name('program');

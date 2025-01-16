@@ -73,8 +73,8 @@
             },
             tooltip: {
                 showTooltip: true,
-                tooltipMessage: 'Start Talk to AI Assistant',
-                tooltipBackgroundColor: 'black',
+                tooltipMessage: 'Start Talk to AgriBot',
+                tooltipBackgroundColor: 'green',
                 tooltipTextColor: 'white',
                 tooltipFontSize: 16
             },
@@ -102,8 +102,8 @@
                 width: 400,
                 fontSize: 16,
                 starterPrompts: [
-                    "What is a bot?",
-                    "Who are you?"
+                    "Program PSP Dinas Pertanian?",
+                    "Bidang yang ingin Anda tanyakan?",
                 ],
                 starterPromptFontSize: 15,
                 clearChatOnReload: false,

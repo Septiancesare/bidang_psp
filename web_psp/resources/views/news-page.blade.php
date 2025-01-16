@@ -5,12 +5,12 @@
 
     <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
         @foreach ($news as $item)
-            <a href="{{ route('news-page.read', ['id' => $item->id_news]) }}">
+            <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
                 <div
                     class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
                     {{-- image section news card  --}}
-                    <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict" width="250"
-                        class="rounded-md ">
+                    <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
+                        class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
                     {{-- section news card  --}}
                     <div class="news-card-info">
                         {{-- section title card news  --}}

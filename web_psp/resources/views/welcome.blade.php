@@ -209,34 +209,26 @@
             <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
 
                 {{-- News Card  --}}
-                <a href="{{ route('newspage.read') }}">
-                    <div
-                        class="news-card w-full bg-slate-50 p-3 flex text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
-                        {{-- image section news card  --}}
-                        <img src="{{ asset('assets/ngopi-tani.png') }}" alt="news pict" width="250"
-                            class="rounded-md ">
-                        {{-- section news card  --}}
-                        <div class="news-card-info">
-                            {{-- section title card news  --}}
-                            <div class="title-news-card lg:text-xl">
-                                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius quidem
-                                    amet
-                                    quis debitis dolore est, hic at saepe modi.</h2>
-                            </div>
-                            {{-- info desc news  --}}
-                            <div class="desc-info-news-card text-gray-500 lg:text-xl font-thin py-2">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam doloribus fuga
-                                repellendus, obcaecati dolorum explicabo iste non sequi reiciendis aut cum sunt alias
-                                ...
-
-                            </div>
-
-                            <div class="date-news">
-                                <p class="text-green-500 text-sm ">2025-01-24</p>
+                @foreach ($news as $item)
+                    <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
+                        <div
+                            class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
+                            <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
+                                class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
+                            <div class="news-card-info">
+                                <div class="title-news-card lg:text-xl">
+                                    <h2>{{ $item->title_news }}</h2>
+                                </div>
+                                <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
+                                    {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
+                                </div>
+                                <div class="date-news">
+                                    <p class="text-green-500 text-sm ">{{ $item->created_at->format('Y-m-d') }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
 
                 <div class="button-more-news flex justify-center">
                     <a href="{{ route('news.index') }}"
