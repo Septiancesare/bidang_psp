@@ -12,6 +12,10 @@ Route::get('/program', function () {
     return view('program');
 })->name('program');
 
+Route::get('/download', function () {
+    return view('download-page');
+})->name('download');
+
 Route::get('/informasi', function () {
     return view('anouncement');
 })->name('anouncement');
@@ -23,6 +27,7 @@ Route::get('/profile-psp', function () {
 // Route::get('/news', function () {
 //     return view('news-page');
 // })->name('newspage');
+
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news-page.read');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 

@@ -1,11 +1,12 @@
 <x-app-layout>
     <div class="anouncement-container">
         <div class="title-anouncement py-5">
-            <h1 class="text-center font-bold text-2xl">INFO</h1>
+            <h1 class="text-center font-bold text-2xl">INFORMASI</h1>
         </div>
         <div class="content-anouncement mx-20 lg:mx-64  px-10 my-6">
             <a href="">
-                <div class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100"> 
+                <div
+                    class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100">
                     <div class="icon-anouncement">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                             <path fill-rule="evenodd"
