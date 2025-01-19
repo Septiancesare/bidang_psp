@@ -12,6 +12,8 @@ class NewsController extends Controller
         $news = News::orderBy('created_at', 'desc')->paginate(25);
         return view('news-page', compact('news'));
     }
+
+
     public function indexWelcome()
     {
         $news = News::orderBy('created_at', 'desc')->take(10)->get();
@@ -22,8 +24,9 @@ class NewsController extends Controller
     {
         // Fetch the specific news by its ID
         $newsItem = News::findOrFail($id);
+        $recentNews = News::orderBy('created_at', 'desc')->take(5)->get();
 
         // Return the view with the news item data
-        return view('read-news-page', compact('newsItem'));
+        return view('read-news-page', compact('newsItem', 'recentNews'));
     }
 }

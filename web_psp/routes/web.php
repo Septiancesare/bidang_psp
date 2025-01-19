@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\News;
+use App\Models\Anouncement;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnouncementController;
 use App\Http\Controllers\ImageUploadController;
-use App\Models\News;
 
 Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
 Route::get('/program', function () {
@@ -16,13 +18,16 @@ Route::get('/download', function () {
     return view('download-page');
 })->name('download');
 
-Route::get('/informasi', function () {
-    return view('anouncement');
-})->name('anouncement');
+Route::get('/informasi', [AnouncementController::class, 'index'])->name('anouncement.index');
+Route::get('/informasi/{id}', [AnouncementController::class, 'show'])->name('anouncement.read');
 
 Route::get('/profile-psp', function () {
     return view('profile-bidang');
 })->name('profile');
+
+Route::get('/hubungi-psp', function () {
+    return view('hubungi-kami');
+})->name('hubungi');
 
 // Route::get('/news', function () {
 //     return view('news-page');

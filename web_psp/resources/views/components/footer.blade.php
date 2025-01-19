@@ -49,11 +49,11 @@
 
                 <!-- Daftar menu layanan -->
                 <ul class="flex flex-col gap-4 text-white mb-4">
-                    <li><a href="{{ route('anouncement') }}" class="nav-link">Informasi</a></li>
+                    <li><a href="{{ route('anouncement.index') }}" class="nav-link">Informasi</a></li>
                     <li><a href="" class="nav-link">Program</a></li>
                     <li><a href="{{ route('news.index') }}" class="nav-link">Berita</a></li>
                     <li><a href="" class="nav-link">FAQ</a></li>
-                    <li><a href="" class="nav-link">Hubungi Kami</a></li>
+                    <li><a href="{{ route('hubungi') }}" class="nav-link">Hubungi Kami</a></li>
                 </ul>
             </div>
 
