@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\AnouncementController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\ProfileBidangController;
 
 Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
 Route::get('/program', function () {
@@ -27,9 +28,7 @@ Route::get('/download/', [DownloadController::class, 'index'])->name('download.i
 Route::get('/download/{id}', [DownloadController::class, 'download'])->name('download.download');
 
 
-Route::get('/profile-psp', function () {
-    return view('profile-bidang');
-})->name('profile');
+Route::get('/profile-psp', [ProfileBidangController::class, 'index'])->name('profile-bidang.index');
 
 // Route::get('/news', function () {
 //     return view('news-page');

@@ -28,6 +28,7 @@ class ProgramResource extends Resource
                     ->label('Image')
                     ->required()
                     ->image()
+                    ->directory('uploads')
                     ->acceptedFileTypes(['image/jpeg', 'image/png'])
                     ->getUploadedFileNameForStorageUsing(function ($file) {
                         return $file->getClientOriginalName();
@@ -47,6 +48,7 @@ class ProgramResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id_program')->sortable(),
                 TextColumn::make('name_program')->searchable(),
                 TextColumn::make('updated_at')->sortable(),
             ])
@@ -55,6 +57,8 @@ class ProgramResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

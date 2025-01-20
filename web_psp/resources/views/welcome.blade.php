@@ -147,10 +147,10 @@
                 {{-- card pimpinan --}}
                 <div class="management-line flex justify-center">
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 1.png') }}" alt="">
+                        <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}" alt="">
                         <div class="card-management-info text-center mt-4">
                             <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
+                                {{ $kepalaBidangStaffs->name_member }}
                             </h2>
                             <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
                         </div>
@@ -159,43 +159,18 @@
 
 
                 {{-- Card staff line 3  --}}
-                <div class="management-line md:flex justify-center gap-10">
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Kepala Seksi 1</p>
+                <div class="management-line flex flex-wrap justify-center gap-10">
+                    @foreach ($staff as $person)
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
+                            <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    {{ $person->name_member }}
+                                </h2>
+                                <p>{{ $person->position_member }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Kepala Seksi 2</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Kepala Seksi 3</p>
-                        </div>
-                    </div>
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
-                        <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                Dr.Ir. Eng. George, Phd.
-                            </h2>
-                            <p>Kepala Seksi 4</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -105,7 +105,7 @@
             </div>
 
             {{-- visi-misi bidang --}}
-            <div class="title-visi-misi font-bold text-center text-xl mt-10 text-gray-600">
+            <div class="title-visi-misi font-bold text-center text-xl mt-10 text-gray-600" id="visi-misi">
                 <h1>Visi Misi Bidang</h1>
             </div>
             <div class="visi">
@@ -158,6 +158,193 @@
                         reiciendis! Misi 3</li>
                 </ol>
             </div>
+
+            <div class="management-bidang text-center my-28 " id="staff">
+                <header>
+                    <h2 class="management-bidang-header text-3xl text-green-900 font-bold">Tata Kelola Bidang PSP</h2>
+                </header>
+                <div class="management-bidang-content mt-10">
+                    {{-- card pimpinan --}}
+                    <div class="management-line flex justify-center">
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-400">
+                            <img src="{{ asset('assets/Dummy person/dummy person 1.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{-- Card kepala seksi line 3  --}}
+                    <div class="management-line md:flex justify-center gap-10 mt-10">
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Kepala Seksi 1</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
+                            <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Kepala Seksi 2</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
+                            <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Kepala Seksi 3</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Kepala Seksi 4</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{-- Card staff line 3  --}}
+                    <div class="management-line md:flex justify-center gap-10 mt-10">
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Card staff line 3  --}}
+                    <div class="management-line md:flex justify-center gap-10 mt-10">
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Card staff line 3  --}}
+                    <div class="management-line md:flex justify-center gap-10 mt-10">
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 3.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 4.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-50">
+                            <img src="{{ asset('assets/Dummy person/dummy person 2.png') }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    Dr.Ir. Eng. George, Phd.
+                                </h2>
+                                <p>Staff PSP</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
         </div>
 
     </div>

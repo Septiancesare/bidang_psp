@@ -14,7 +14,7 @@
                     </div>
                 @else
                     @foreach ($file as $item)
-                        <a href="{{ route('download.download', ['id' => $item->id]) }}">
+                        <a href="{{ route('download.download', $item->id) }}">
                             <div
                                 class="card-download flex items-center gap-4 bg-white shadow-lg rounded-lg my-3 p-5 hover:bg-green-100">
                                 <div class="icon-anouncement">

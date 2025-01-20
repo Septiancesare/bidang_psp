@@ -18,8 +18,8 @@ class DownloadController extends Controller
         // Temukan file berdasarkan ID
         $file = Download::findOrFail($id);
 
-        // Path lengkap ke file
-        $filePath = public_path($file->file);
+        // Path lengkap ke file di public/storage/uploads
+        $filePath = public_path('storage/' . $file->file);
 
         // Cek apakah file ada di path tersebut
         if (!file_exists($filePath)) {

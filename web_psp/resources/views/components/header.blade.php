@@ -36,10 +36,11 @@
                 </a>
                 <!-- Dropdown Menu -->
                 <ul class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap">
-                    <li><a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-200">Profil Bidang</a>
+                    <li><a href="{{ route('profile-bidang.index') }}" class="block px-4 py-2 hover:bg-gray-200">Profil Bidang</a>
                     </li>
-                    <li><a href="#visi-misi" class="block px-4 py-2 hover:bg-gray-200">Visi Misi</a></li>
-                    <li><a href="#staff" class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
+                    <li><a href="{{ route('profile-bidang.index') }}#visi-misi" class="block px-4 py-2 hover:bg-gray-200">Visi
+                            Misi</a></li>
+                    <li><a href="{{ route('profile-bidang.index') }}#staff" class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
                 </ul>
             </li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('program') }}">Program</a></li>
@@ -61,15 +62,14 @@
                 </a>
                 <!-- Dropdown for Mobile -->
                 <ul class="ml-5 mt-2">
-                    <li><a href="{{ route('profile') }}" class="block">Profil Bidang</a></li>
-                    <li><a href="#visi-misi" class="block">Visi Misi</a></li>
-                    <li><a href="#staff" class="block">Staff</a></li>
+                    <li><a href="{{ route('profile-bidang.index') }}" class="block">Profil Bidang</a></li>
+                    <li><a href="{{ route('profile-bidang.index') }}#visi-misi" class="block">Visi Misi</a></li>
+                    <li><a href="{{ route('profile-bidang.index') }}#staff" class="block">Staff</a></li>
                 </ul>
             </li>
             <li class="nav-item"><a href="{{ route('program') }}">Program</a></li>
             <li class="nav-item"><a href="#">Jurnal</a></li>
-            <li class="nav-item"><a href="#">Download</a></li>
-            <li class="nav-item"><a href="#">Kontak</a></li>
+            <li class="nav-item"><a href="{{ route('download.index') }}">Download</a></li>
         </ul>
 
         <script>
