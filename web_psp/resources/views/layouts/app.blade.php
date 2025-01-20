@@ -45,7 +45,7 @@
     @include('components.footer')
 </body>
 
-<script type="module">
+{{-- <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
         chatflowid: "24dd17de-648e-49e0-918a-d61eef3f2132",
@@ -150,6 +150,6 @@
             }
         }
     })
-</script>
+</script> --}}
 
 </html>

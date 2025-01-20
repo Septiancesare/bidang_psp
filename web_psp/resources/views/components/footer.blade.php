@@ -52,8 +52,7 @@
                     <li><a href="{{ route('anouncement.index') }}" class="nav-link">Informasi</a></li>
                     <li><a href="" class="nav-link">Program</a></li>
                     <li><a href="{{ route('news.index') }}" class="nav-link">Berita</a></li>
-                    <li><a href="" class="nav-link">FAQ</a></li>
-                    <li><a href="{{ route('hubungi') }}" class="nav-link">Hubungi Kami</a></li>
+                    <li><a href="{{ route('faq.index') }}" class="nav-link">FAQ</a></li>
                 </ul>
             </div>
 

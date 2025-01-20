@@ -6,9 +6,9 @@
         class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 h-72 ">
         <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
     </div>
-    <div class="container program-page py-2 lg:px-28">
+    <div class="container program-page py-2 lg:px-28 bg-slate-100">
         <!-- Card program dengan background abu-abu dan bayangan -->
-        <div class="program p-2 m-3  bg-slate-100 rounded-lg  shadow-xl ">
+        <div class="program p-2 m-3  bg-white rounded-lg  shadow-xl ">
 
             <!-- Bagian A: Subkoor Penyuluhan -->
             <div class="penyuluhan mx-20">
@@ -240,19 +240,7 @@
         transform: scale(1.2);
     }
 
-    .program-page {
-        background-image: url('/assets/bg-program.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: relative;
 
-        /* Overlay warna */
-        background-color: #f2f7f2d0;
-        /* Putih dengan opacity */
-        background-blend-mode: overlay;
-        /* Gabungkan gambar dan warna */
-    }
 
     /* Container untuk modal */
     .modal {

@@ -1,12 +1,13 @@
 <x-app-layout>
-    <div class="anouncement-container">
+    <div class="anouncement-container min-h-screen">
         <div class="title-anouncement py-5">
             <h1 class="text-center font-bold text-2xl">INFORMASI</h1>
         </div>
         <div class="content-anouncement  mx-20 lg:mx-64  px-10 my-6 mb-20">
             @if ($anounce->isEmpty())
-                <div class="text-center text-gray-500 text-lg ">
-                    Belum ada informasi yang dibagikan.
+                <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4">
+                    <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                    <p>Belum ada informasi yang dibagikan.</p>
                 </div>
             @else
                 @foreach ($anounce as $item)

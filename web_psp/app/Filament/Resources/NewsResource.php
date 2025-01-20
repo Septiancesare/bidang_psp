@@ -66,7 +66,10 @@ class NewsResource extends Resource
                             ->label('Image')
                             ->required()
                             ->image()
-                            ->acceptedFileTypes(['image/jpeg', 'image/png']),
+                            ->acceptedFileTypes(['image/jpeg', 'image/png'])
+                            ->getUploadedFileNameForStorageUsing(function ($file) {
+                                return $file->getClientOriginalName(); 
+                            }),
 
                         //content
                         Forms\Components\RichEditor::make('content_news')

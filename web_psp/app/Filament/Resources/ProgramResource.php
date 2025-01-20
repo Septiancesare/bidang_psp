@@ -28,7 +28,10 @@ class ProgramResource extends Resource
                     ->label('Image')
                     ->required()
                     ->image()
-                    ->acceptedFileTypes(['image/jpeg', 'image/png']),
+                    ->acceptedFileTypes(['image/jpeg', 'image/png'])
+                    ->getUploadedFileNameForStorageUsing(function ($file) {
+                        return $file->getClientOriginalName();
+                    }),
                 Forms\Components\TextInput::make('name_program')
                     ->label('Name')
                     ->placeholder('Write for program name')
