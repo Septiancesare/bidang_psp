@@ -2,22 +2,16 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
-
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'name',
         'email',
@@ -25,21 +19,11 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -48,7 +32,31 @@ class User extends Authenticatable
         ];
     }
 
-    public function newsComments(){
+    public function newsComments()
+    {
         return $this->hasMany(NewsComment::class);
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // You can customize the access rules based on panel ID
+        return match ($panel->getId()) {
+            'admin' => $this->isAdmin(),
+            'user' => $this->isUser(),
+            default => str_ends_with($this->email, '@psp.com') && $this->hasVerifiedEmail(),
+        };
+    }
+
+    // Helper methods for role checking
+    private function isAdmin(): bool
+    {
+        return $this->role === 'admin' &&
+            str_ends_with($this->email, '@yourdomain.com') &&
+            $this->hasVerifiedEmail();
+    }
+
+    private function isUser(): bool
+    {
+        return $this->role === 'user' && $this->hasVerifiedEmail();
     }
 }
