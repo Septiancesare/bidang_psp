@@ -47,23 +47,7 @@
                     Grobogan</h3>
             </header>
             <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7  ">
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet cupiditate dolorem aut
-                    fugit
-                    soluta quod, provident consequatur sunt iure quaerat dolores suscipit doloribus odit a quasi!
-                    Facilis nostrum veniam sed porro consequatur eum fugiat, quo iure eveniet possimus eos mollitia quia
-                    laudantium magnam quasi quibusdam ipsa labore veritatis repellat doloremque. Molestias iste nesciunt
-                    aspernatur, doloremque nulla officiis architecto incidunt labore eos, culpa qui perspiciatis
-                    assumenda. Nemo, eius quas. Sed eligendi, impedit quae vel quia culpa, enim ex quaerat tempora
-                    praesentium provident tempore totam cupiditate facere maxime ea, laboriosam magni voluptatibus sit
-                    amet? Libero similique totam cum dignissimos aliquam! Rerum sequi asperiores odio similique
-                    excepturi illum voluptate beatae sapiente, sunt quam quisquam magni voluptates numquam qui
-                    consequuntur mollitia natus ut! Iusto vero explicabo repellendus mollitia adipisci iure sapiente
-                    rerum ex, porro nam. Cum quia quos facilis minus saepe natus earum obcaecati vel voluptates! Veniam
-                    eligendi eveniet fuga accusantium iusto autem quod voluptates. Alias, sequi! Sit quos doloremque
-                    excepturi eum perspiciatis repellat velit incidunt ipsa autem, dolores eligendi illum ab eius a.
-                    Quasi ut, blanditiis ullam facere nulla maxime, mollitia quos facilis error iure incidunt aliquam
-                    commodi nisi! Vel culpa doloremque, dolor laboriosam explicabo illo doloribus animi consequatur,
-                    magnam aperiam placeat?</p>
+                {!! $profilebidang->description !!}
             </div>
 
             {{-- section image program in home page  --}}
