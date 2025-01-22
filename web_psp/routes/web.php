@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\News;
+use App\Models\Program;
 use App\Models\Download;
 use App\Models\Anouncement;
 use App\Http\Controllers\Controller;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\AnouncementController;
 use App\Http\Controllers\ImageUploadController;
@@ -17,7 +19,7 @@ Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
 Route::get('/program', function () {
     return view('program');
 })->name('program');
-
+Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
 
 Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
 

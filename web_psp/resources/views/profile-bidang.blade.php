@@ -75,14 +75,15 @@
 
                     {{-- Card kepala seksi line 3  --}}
                     <div class="management-line flex flex-wrap justify-center gap-10 my-5">
-                        @foreach ($kasi as $staff)
+                        @foreach ($kasi as $kasiMember)
+                            {{-- Changed variable name --}}
                             <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
-                                <img src="{{ asset('storage/' . $staff->image_member) }}" alt="">
+                                <img src="{{ asset('storage/' . $kasiMember->image_member) }}" alt="">
                                 <div class="card-management-info text-center mt-4">
                                     <h2 class="font-bold">
-                                        {{ $staff->name_member }}
+                                        {{ $kasiMember->name_member }}
                                     </h2>
-                                    <p>{{ $staff->position_member }}</p>
+                                    <p>{{ $kasiMember->position_member }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -91,14 +92,15 @@
 
                     {{-- Card staff line 3  --}}
                     <div class="management-line flex flex-wrap justify-center gap-10 my-5">
-                        @foreach ($staff as $staffbidang)
-                            <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-200">
-                                <img src="{{ asset('storage/' . $staff->image_member) }}" alt="">
+                        @foreach ($staff as $staffMember)
+                            {{-- Changed variable name --}}
+                            <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 bg-green-100">
+                                <img src="{{ asset('storage/' . $staffMember->image_member) }}" alt="">
                                 <div class="card-management-info text-center mt-4">
                                     <h2 class="font-bold">
-                                        {{ $staffbidang->name_member }}
+                                        {{ $staffMember->name_member }}
                                     </h2>
-                                    <p>{{ $staffbidang->position_member }}</p>
+                                    <p>{{ $staffMember->position_member }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -115,5 +117,18 @@
         </div>
 
     </div>
+
+    <style>
+        .card-management img {
+            height: 300px;
+            /* Sesuaikan dengan tinggi yang diinginkan */
+            width: 100%;
+            /* Agar gambar memenuhi lebar kartu */
+            object-fit: cover;
+            /* Memastikan gambar terpotong sesuai dimensi */
+            border-radius: 8px;
+            /* Opsional, untuk memberi sudut melengkung */
+        }
+    </style>
 
 </x-app-layout>

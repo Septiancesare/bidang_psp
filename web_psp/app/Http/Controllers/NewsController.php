@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Information;
 use App\Models\MemberData;
 use App\Models\News;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -19,10 +20,11 @@ class NewsController extends Controller
     public function indexWelcome()
     {
         $profilebidang = Information::findOrFail(1);
+        $prog = Program::all();
         $kepalaBidangStaffs = MemberData::findOrFail(1);
         $staff = MemberData::where('position_member', 'Kepala Seksi')->get();
         $news = News::orderBy('created_at', 'desc')->take(10)->get();
-        return view('welcome', compact('news', 'staff', 'kepalaBidangStaffs', 'profilebidang'));
+        return view('welcome', compact('news', 'staff', 'kepalaBidangStaffs', 'profilebidang', 'prog'));
     }
 
     public function show($id)

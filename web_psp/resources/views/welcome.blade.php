@@ -60,211 +60,155 @@
             </div>
 
             <div class="program my-3 lg:mx-56">
-                <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy.png') }}" alt="Dummy Image 1" class="hover:zoom"
-                                width="400" height="200" onclick="openModal(this, 0)">
-                        </div>
+                @php
+                    $chunks = $prog->chunk(4);
+                @endphp
+
+                @foreach ($chunks as $chunk)
+                    <div class="line-break lg:flex justify-center gap-1 mb-1">
+                        @foreach ($chunk as $program)
+                            <div class="program-card">
+                                <div class="image-container overflow-hidden">
+                                    <img src="{{ asset('storage/' . $program->image_program) }}"
+                                        alt="{{ $program->name_program }}" class="hover:zoom" width="400"
+                                        height="200"
+                                        onclick="openModal(this, {{ $loop->parent->index * 4 + $loop->index }})">
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (2).png') }}" alt="Dummy Image 2"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 1)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (3).png') }}" alt="Dummy Image 3"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 2)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (4).png') }}" alt="Dummy Image 4"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 3)">
-                        </div>
-                    </div>
-                </div>
-                <div class="line-break lg:flex justify-center gap-1 mb-1">
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (5).png') }}" alt="Dummy Image 5"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 4)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (6).png') }}" alt="Dummy Image 6"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 5)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (7).png') }}" alt="Dummy Image 7"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 6)">
-                        </div>
-                    </div>
-                    <div class="program-card">
-                        <div class="image-container overflow-hidden">
-                            <img src="{{ asset('assets/Dummy Page/dummy (8).png') }}" alt="Dummy Image 8"
-                                class="hover:zoom" width="400" height="200" onclick="openModal(this, 7)">
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+            </div>
 
 
-                <div class="button-more-program flex justify-center">
-                    <a href="{{ route('program') }}"
-                        class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Baca
-                        Selengkapnya</a>
-                </div>
+            <div class="button-more-program flex justify-center">
+                <a href="{{ route('program.index') }}"
+                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Baca
+                    Selengkapnya</a>
             </div>
         </div>
+    </div>
 
-        {{-- Section for company Management  --}}
-        <div class="management-bidang text-center my-28 ">
-            <header>
-                <h2 class="management-bidang-header text-3xl text-green-900 font-bold">Tata Kelola Bidang PSP</h2>
-            </header>
-            <div class="management-bidang-content ">
-                {{-- card pimpinan --}}
-                <div class="management-line flex justify-center">
+    {{-- Section for company Management  --}}
+    <div class="management-bidang text-center my-28 ">
+        <header>
+            <h2 class="management-bidang-header text-3xl text-green-900 font-bold">Tata Kelola Bidang PSP</h2>
+        </header>
+        <div class="management-bidang-content ">
+            {{-- card pimpinan --}}
+            <div class="management-line flex justify-center">
+                <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
+                    <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}" alt="">
+                    <div class="card-management-info text-center mt-4">
+                        <h2 class="font-bold">
+                            {{ $kepalaBidangStaffs->name_member }}
+                        </h2>
+                        <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- Card staff line 3  --}}
+            <div class="management-line flex flex-wrap justify-center gap-10">
+                @foreach ($staff as $person)
                     <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                        <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}" alt="">
+                        <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
                         <div class="card-management-info text-center mt-4">
                             <h2 class="font-bold">
-                                {{ $kepalaBidangStaffs->name_member }}
+                                {{ $person->name_member }}
                             </h2>
-                            <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p>{{ $person->position_member }}</p>
                         </div>
                     </div>
-                </div>
-
-
-                {{-- Card staff line 3  --}}
-                <div class="management-line flex flex-wrap justify-center gap-10">
-                    @foreach ($staff as $person)
-                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                            <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
-                            <div class="card-management-info text-center mt-4">
-                                <h2 class="font-bold">
-                                    {{ $person->name_member }}
-                                </h2>
-                                <p>{{ $person->position_member }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-
-        {{-- Section for News  --}}
-        <div class="news-bidang text-center">
-            <header class="font-bold">
-                <h2 class="news-bidang-header text-3xl text-green-900">Berita Terkini</h2>
-            </header>
-            <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
-
-                {{-- News Card  --}}
-                @foreach ($news as $item)
-                    <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
-                        <div
-                            class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
-                            <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
-                                class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
-                            <div class="news-card-info">
-                                <div class="title-news-card lg:text-xl">
-                                    <h2>{{ $item->title_news }}</h2>
-                                </div>
-                                <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
-                                    {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
-                                </div>
-                                <div class="date-news">
-                                    <p class="text-green-500 text-sm ">{{ $item->created_at->format('Y-m-d') }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
                 @endforeach
-
-                <div class="button-more-news flex justify-center">
-                    <a href="{{ route('news.index') }}"
-                        class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Berita
-                        Selengkapnya</a>
-                </div>
-
-
             </div>
         </div>
+    </div>
+
+
+    {{-- Section for News  --}}
+    <div class="news-bidang text-center">
+        <header class="font-bold">
+            <h2 class="news-bidang-header text-3xl text-green-900">Berita Terkini</h2>
+        </header>
+        <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
+
+            {{-- News Card  --}}
+            @foreach ($news as $item)
+                <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
+                    <div
+                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
+                        <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
+                            class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
+                        <div class="news-card-info">
+                            <div class="title-news-card lg:text-xl">
+                                <h2>{{ $item->title_news }}</h2>
+                            </div>
+                            <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
+                                {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
+                            </div>
+                            <div class="date-news">
+                                <p class="text-green-500 text-sm ">{{ $item->created_at->format('Y-m-d') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+
+            <div class="button-more-news flex justify-center">
+                <a href="{{ route('news.index') }}"
+                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Berita
+                    Selengkapnya</a>
+            </div>
+
+
+        </div>
+    </div>
 </x-app-layout>
 
 
 {{-- Script Slider --}}
+{{-- Place this script after your HTML content --}}
 <script>
+    // Hero Slider Functionality
     document.addEventListener("DOMContentLoaded", function() {
         const images = document.querySelectorAll("#hero-slider img");
         const texts = document.querySelectorAll("#text-slider h1");
         let currentIndex = 0;
 
         setInterval(() => {
-            // Hide current image
             images[currentIndex].classList.remove("opacity-100");
             images[currentIndex].classList.add("opacity-0");
 
-            // Hide current text
             texts[currentIndex].classList.remove("translate-y-0", "opacity-100");
             texts[currentIndex].classList.add("translate-y-full", "opacity-0");
 
-            // Update index
             currentIndex = (currentIndex + 1) % images.length;
 
-            // Show next image
             images[currentIndex].classList.remove("opacity-0");
             images[currentIndex].classList.add("opacity-100");
 
-            // Show next text
             texts[currentIndex].classList.remove("translate-y-full", "opacity-0");
             texts[currentIndex].classList.add("translate-y-0", "opacity-100");
-        }, 5000); // Change every 5 seconds
+        }, 5000);
     });
 
+    // Gallery Modal Functionality
     let currentIndex = 0;
-    const images = [{
-            src: "{{ asset('assets/Dummy Page/dummy.png') }}",
-            alt: "Dummy Image 1"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (2).png') }}",
-            alt: "Dummy Image 2"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (3).png') }}",
-            alt: "Dummy Image 3"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (4).png') }}",
-            alt: "Dummy Image 4"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (5).png') }}",
-            alt: "Dummy Image 5"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (6).png') }}",
-            alt: "Dummy Image 6"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (7).png') }}",
-            alt: "Dummy Image 7"
-        },
-        {
-            src: "{{ asset('assets/Dummy Page/dummy (8).png') }}",
-            alt: "Dummy Image 8"
-        }
+    const images = [
+        @foreach ($prog as $program)
+            {
+                src: "{{ asset('storage/' . $program->image_program) }}",
+                alt: "{{ $program->name_program }}"
+            }
+            @if (!$loop->last)
+                ,
+            @endif
+        @endforeach
     ];
 
+    // Modal Functions
     function openModal(imgElement, index) {
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImage");
@@ -275,6 +219,7 @@
         modalImg.src = imgElement.src;
         captionText.textContent = imgElement.alt;
 
+        // Add event listeners
         document.addEventListener('keydown', handleKeyPress);
     }
 
@@ -282,11 +227,14 @@
         const modal = document.getElementById("imageModal");
         modal.style.display = "none";
 
+        // Remove event listeners
         document.removeEventListener('keydown', handleKeyPress);
     }
 
     function changeImage(step) {
         currentIndex += step;
+
+        // Handle wrapping
         if (currentIndex < 0) {
             currentIndex = images.length - 1;
         } else if (currentIndex >= images.length) {
@@ -301,12 +249,28 @@
     }
 
     function handleKeyPress(event) {
-        if (event.key === 'ArrowRight') {
-            changeImage(1);
-        } else if (event.key === 'ArrowLeft') {
-            changeImage(-1);
+        switch (event.key) {
+            case 'ArrowRight':
+                changeImage(1);
+                break;
+            case 'ArrowLeft':
+                changeImage(-1);
+                break;
+            case 'Escape':
+                closeModal();
+                break;
         }
     }
+
+    // Close modal when clicking outside the image
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById("imageModal");
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    });
 </script>
 
 {{-- Script to open modal image --}}
@@ -338,6 +302,17 @@
 </style>
 
 <style>
+    .card-management img {
+        height: 300px;
+        /* Sesuaikan dengan tinggi yang diinginkan */
+        width: 100%;
+        /* Agar gambar memenuhi lebar kartu */
+        object-fit: cover;
+        /* Memastikan gambar terpotong sesuai dimensi */
+        border-radius: 8px;
+        /* Opsional, untuk memberi sudut melengkung */
+    }
+
     /* Container untuk modal */
     .modal {
         display: none;
