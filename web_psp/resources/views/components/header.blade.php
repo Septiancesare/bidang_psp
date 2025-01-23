@@ -1,7 +1,7 @@
 <header
-    class="bg-green-800 p-2 text-white tracking-wider lg:flex justify-between lg:px-10 items-center bg-gradient-to-t from-black/50 to-transparent gap-10">
+    class="bg-green-800 p-2  tracking-wider lg:flex justify-between lg:px-10 items-center bg-gradient-to-t from-black/50 to-transparent gap-10">
     <!-- Bagian header yang berisi logo dan judul utama -->
-    <div class="header flex justify-center gap-3 ">
+    <div class="header flex justify-center gap-3 text-white ">
         <!-- Logo Kabupaten Grobogan -->
         <div class="logo-kabupaten">
             <img src="{{ asset('assets/Lambang_Grobogan.png') }}" alt="grobogan" class="h-12">
@@ -16,7 +16,7 @@
     </div>
 
     {{-- navigasi halaman  --}}
-    <div class="flex nav items-center lg:justify-center h-10">
+    <div class="flex nav items-center lg:justify-center h-10 text-white">
         <button id="menu-toggle" class="block md:hidden focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -34,6 +34,7 @@
                             d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                     </svg>
                 </a>
+
                 <!-- Dropdown Menu -->
                 <ul class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap">
                     <li><a href="{{ route('profile-bidang.index') }}" class="block px-4 py-2 hover:bg-gray-200">Profil
@@ -51,6 +52,7 @@
             <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('anouncement.index') }}">Informasi</a></li>
             <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('download.index') }}">Download</a></li>
         </ul>
+
         <!-- Mobile Menu -->
         <ul id="mobile-menu"
             class="hidden absolute top-16 left-0 w-full bg-green-700 text-white flex-col gap-4 p-5 md:hidden bg-gradient-to-t from-black/50 to-transparent">
@@ -63,6 +65,7 @@
                             d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                     </svg>
                 </a>
+
                 <!-- Dropdown for Mobile -->
                 <ul class="ml-5 mt-2">
                     <li><a href="{{ route('profile-bidang.index') }}" class="block">Profil Bidang</a></li>
@@ -70,6 +73,7 @@
                     <li><a href="{{ route('profile-bidang.index') }}#staff" class="block">Staff</a></li>
                 </ul>
             </li>
+
             <li class="nav-item"><a href="{{ route('program.index') }}">Program</a></li>
             <li class="nav-item"><a href="#">Jurnal</a></li>
             <li class="nav-item"><a href="{{ route('download.index') }}">Download</a></li>
@@ -99,7 +103,7 @@
                                 <x-dropdown align="right" width="48">
                                     <x-slot name="trigger">
                                         <button
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-green-600  hover:text-green-200  focus:outline-none transition ease-in-out duration-150">
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md bg-green-600 text-white  hover:text-green-200  focus:outline-none transition ease-in-out duration-150">
                                             <div>{{ Auth::user()->name }}</div>
 
                                             <div class="ms-1">
@@ -152,7 +156,6 @@
                     <!-- Responsive Navigation Menu -->
                     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
 
-
                         <!-- Responsive Settings Options -->
                         <div class="pt-4 pb-1 border-t border-gray-200">
                             <div class="px-4">
@@ -160,7 +163,7 @@
                                 <div class="font-medium text-sm text-white">{{ Auth::user()->email }}</div>
                             </div>
 
-                            <div class="mt-3 space-y-1">
+                            <div class="mt-3 space-y-1 text-black">
                                 <x-responsive-nav-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
                                 </x-responsive-nav-link>
@@ -181,13 +184,13 @@
                 </nav>
             @else
                 <a href="{{ route('login') }}"
-                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300  focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-green-300  focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                     Log in
                 </a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-green-300 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                         Register
                     </a>
                 @endif
@@ -200,8 +203,6 @@
 <div class="running-text overflow-hidden whitespace-nowrap relative w-screen bg-green-100">
     <p class="text-running">Jam Operasional : Senin - Jumat pukul 08.00 - 16.00 WIB</p>
 </div>
-
-
 
 <style>
     /* Mengatur tinggi elemen teks berjalan */

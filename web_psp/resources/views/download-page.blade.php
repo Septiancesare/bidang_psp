@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="download-container">
+    <div class="download-container min-h-screen">
         <div class="header-download">
             <div class="header-download-title text-center font-bold dm-serif-text-regular text-3xl my-5">
                 <h1>Download</h1>

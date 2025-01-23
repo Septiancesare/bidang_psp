@@ -7,7 +7,7 @@
             <div class="info-content-title text-center  text-2xl my-5">
                 <h2>{{ $anounceContent->title }}</h2>
             </div>
-            <div class="info-content-desc text-justify  text-lg my-5">
+            <div class="info-content-desc text-justify  text-lg my-5 leading-loose">
                 <p>{!! $anounceContent->content !!}</p>
             </div>
             <div class="info-content-date text-start  text-md text-gray-400 my-5">
