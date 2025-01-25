@@ -9,6 +9,7 @@
     <title>PSP Dinas Pertanian Grobogan</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/Lambang_Grobogan.png') }}" type="image/x-icon">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -29,6 +30,12 @@
             font-family: "DM Serif Text", serif;
             font-weight: 400;
             font-style: italic;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
     </style>
 </head>
@@ -259,5 +266,36 @@
     })
 </script> --}}
 
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.directive('scroll-reveal', (el, {
+            value,
+            modifiers
+        }, {
+            evaluateLater,
+            effect
+        }) => {
+            const computeIsVisible = evaluateLater(value || 'true');
+
+            effect(() => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove('opacity-0',
+                                'translate-y-10');
+                            entry.target.classList.add('opacity-100',
+                                'translate-y-0');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                observer.observe(el);
+            });
+        });
+    });
+</script>
 
 </html>

@@ -38,16 +38,19 @@
     <div class="container mx-auto my-10 ">
         {{-- Section for profile company  --}}
         <div class="profile-bidang text-center mx-12">
-            <header class="font-bold" id="profile-bidang">
-                <h1 class="profile-header text-lg text-slate-500 tracking-widest">Profile</h1>
-                <h2 class="profile-bidang-header text-3xl text-green-900 tracking-wider">Bidang Penyuluhan, Sarana, dan
-                    Prasarana
-                    Pertanian</h2>
-                <h3 class="profile-dinas-header text-2xl text-green-900 tracking-wider">Dinas Pertanian Kabupaten
-                    Grobogan</h3>
-            </header>
-            <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7  ">
-                {!! $profilebidang->description !!}
+            <div>
+                <header class="font-bold " id="profile-bidang">
+                    <h1 class="profile-header text-lg text-slate-500 tracking-widest">Profile</h1>
+                    <h2 class="profile-bidang-header text-3xl text-green-900 tracking-wider">Bidang Penyuluhan, Sarana,
+                        dan
+                        Prasarana
+                        Pertanian</h2>
+                    <h3 class="profile-dinas-header text-2xl text-green-900 tracking-wider">Dinas Pertanian Kabupaten
+                        Grobogan</h3>
+                </header>
+                <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7  ">
+                    {!! $profilebidang->description !!}
+                </div>
             </div>
 
             {{-- section image program in home page  --}}
