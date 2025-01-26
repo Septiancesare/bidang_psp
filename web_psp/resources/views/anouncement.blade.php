@@ -3,17 +3,36 @@
         <div class="title-anouncement py-5">
             <h1 class="text-center font-bold text-2xl">INFORMASI</h1>
         </div>
-        <div class="content-anouncement  mx-20 lg:mx-64  px-10 my-6 mb-20">
+
+        {{-- Search Form --}}
+        <div class="search-container mx-10 lg:mx-64 mb-6">
+            <form action="{{ route('anouncement.index') }}" method="GET" class="flex items-center">
+                <input type="text" name="search" placeholder="Cari informasi..." value="{{ request('search') }}"
+                    class="w-full px-4 py-2 rounded-l-lg focus:outline-none  focus:ring-green-500">
+                <button type="submit"
+                    class="bg-green-500 text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition duration-300">
+                    Cari
+                </button>
+            </form>
+        </div>
+
+        <div class="content-anouncement lg:mx-64 px-10 my-6 mb-20">
             @if ($anounce->isEmpty())
                 <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4">
                     <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
-                    <p>Belum ada informasi yang dibagikan.</p>
+                    <p>
+                        @if (request('search'))
+                            Tidak ada informasi yang sesuai dengan pencarian "{{ request('search') }}".
+                        @else
+                            Belum ada informasi yang dibagikan.
+                        @endif
+                    </p>
                 </div>
             @else
                 @foreach ($anounce as $item)
                     <a href="{{ route('anouncement.read', ['id' => $item->id]) }}">
                         <div
-                            class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100">
+                            class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100 mb-4">
                             <div class="icon-anouncement">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     class="size-6">
@@ -34,6 +53,10 @@
                     </a>
                 @endforeach
 
+                {{-- Pagination Links --}}
+                <div class="pagination mt-4">
+                    {{ $anounce->appends(request()->input())->links() }}
+                </div>
             @endif
         </div>
     </div>

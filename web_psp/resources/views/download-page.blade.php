@@ -1,16 +1,33 @@
 <x-app-layout>
     <div class="download-container min-h-screen">
+
         <div class="header-download">
             <div class="header-download-title text-center font-bold dm-serif-text-regular text-3xl my-5">
                 <h1>Download</h1>
             </div>
         </div>
+        <div class="search-container lg:mx-64 px-10 mb-5">
+            <form action="{{ route('download.index') }}" method="GET" class="flex items-center">
+                <input type="text" name="search" placeholder="Cari dokumen..." value="{{ request('search') }}"
+                    class="w-full px-4 py-2 border border-gray-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button type="submit"
+                    class="bg-green-500 text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition duration-300">
+                    Cari
+                </button>
+            </form>
+        </div>
         <div class="content-download">
-            <div class="content-download  mx-20 lg:mx-64  px-10 my-6 mb-20">
+            <div class="content-download lg:mx-64 px-10 my-6 mb-20">
                 @if ($file->isEmpty())
                     <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4">
                         <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
-                        <p>Belum ada File yang dibagikan.</p>
+                        <p>
+                            @if (request('search'))
+                                Tidak ada dokumen yang sesuai dengan pencarian "{{ request('search') }}".
+                            @else
+                                Belum ada File yang dibagikan.
+                            @endif
+                        </p>
                     </div>
                 @else
                     @foreach ($file as $item)
@@ -25,7 +42,6 @@
                                         <path
                                             d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
                                     </svg>
-
                                 </div>
                                 <div class="content-card-anouncement flex flex-col gap-2">
                                     <div class="card-title text-xl font-bold">
@@ -39,6 +55,10 @@
                         </a>
                     @endforeach
 
+                    {{-- Pagination Links --}}
+                    <div class="pagination mt-4">
+                        {{ $file->appends(request()->input())->links() }}
+                    </div>
                 @endif
             </div>
         </div>

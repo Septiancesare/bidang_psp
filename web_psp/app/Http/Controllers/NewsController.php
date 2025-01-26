@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::orderBy('created_at', 'desc')->paginate(25);
+        $query = $request->input('search');
+
+        $news = News::when($query, function ($q) use ($query) {
+            return $q->where('title_news', 'like', '%' . $query . '%');
+        })->orderBy('created_at', 'desc')->paginate(25);
+
         return view('news-page', compact('news'));
     }
 

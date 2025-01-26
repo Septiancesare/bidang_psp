@@ -20,20 +20,20 @@
                 <div class="news-container my-10">
 
                     {{-- image-container  --}}
-                    <div class="image-news mx-40 flex justify-center w-auto">
+                    <div class="image-news lg:mx-40 flex justify-center w-auto">
                         <img src="{{ asset('storage/' . $newsItem->image_news) }}" alt="" class="rounded-md">
                     </div>
 
                     <br>
 
 
-                    <div class="paragraph-content text-justify my-4">
+                    <div class="paragraph-content text-justify my-4 leading-loose">
                         {!! $newsItem->content_news !!}
                     </div>
 
                 </div>
             </div>
-            <div class="sidebar p-2 bg-slate-100 lg:w-1/2 rounded-md mt-24 ">
+            <div class="sidebar p-2 bg-slate-50 lg:w-4/5 rounded-md mt-24 ">
                 <div class="title-sidebar text-2xl  my-3 text-center tracking-widest">
                     <h1>RECENT NEWS</h1>
                     <hr class="border-2 border-green-500 my-3">
@@ -68,3 +68,8 @@
         </div>
     </div>
 </x-app-layout>
+<style>
+    .paragraph-content p {
+        padding: 0.75rem 0;
+    }
+</style>

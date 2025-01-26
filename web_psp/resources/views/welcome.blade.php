@@ -416,4 +416,8 @@
     .management-line {
         margin-top: 1.2rem;
     }
+
+    .content-profile p {
+        padding: 0.5rem 0;
+    }
 </style>

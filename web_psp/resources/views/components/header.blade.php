@@ -55,36 +55,95 @@
 
         <!-- Mobile Menu -->
         <ul id="mobile-menu"
-            class="hidden absolute top-16 left-0 w-full bg-green-700 text-white flex-col gap-4 p-5 md:hidden bg-gradient-to-t from-black/50 to-transparent">
-            <li class="nav-item"><a href="{{ route('welcome') }}">Beranda</a></li>
-            <li class="nav-item">
-                <a href="#" class="flex justify-between items-center">
-                    Profile
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
-                        <path
-                            d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+            class="hidden fixed top-16 left-0 w-full bg-green-700 text-white flex-col gap-4 p-5 md:hidden z-50 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <!-- Close Button -->
+            <li class="absolute top-2 right-2">
+                <button id="mobile-menu-close" class="text-white hover:text-green-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                </a>
-
-                <!-- Dropdown for Mobile -->
-                <ul class="ml-5 mt-2">
-                    <li><a href="{{ route('profile-bidang.index') }}" class="block">Profil Bidang</a></li>
-                    <li><a href="{{ route('profile-bidang.index') }}#visi-misi" class="block">Visi Misi</a></li>
-                    <li><a href="{{ route('profile-bidang.index') }}#staff" class="block">Staff</a></li>
-                </ul>
+                </button>
             </li>
 
-            <li class="nav-item"><a href="{{ route('program.index') }}">Program</a></li>
-            <li class="nav-item"><a href="#">Jurnal</a></li>
-            <li class="nav-item"><a href="{{ route('download.index') }}">Download</a></li>
+            <!-- Rest of the menu items remain the same as in previous artifact -->
+            <li class="mt-8 border-b border-green-600 pb-2">
+                <a href="{{ route('welcome') }}" class="block py-2 hover:bg-green-600 rounded">Beranda</a>
+            </li>
+
+            <li class="border-b border-green-600 pb-2">
+                <div class="profile-dropdown">
+                    <a href="#" class="flex justify-between items-center py-2 hover:bg-green-600 rounded">
+                        <span>Profil</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
+                            <path
+                                d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                        </svg>
+                    </a>
+
+                    <ul class="ml-4 mt-2 hidden">
+                        <li><a href="{{ route('profile-bidang.index') }}"
+                                class="block py-2 hover:bg-green-600 rounded">Profil Bidang</a></li>
+                        <li><a href="{{ route('profile-bidang.index') }}#visi-misi"
+                                class="block py-2 hover:bg-green-600 rounded">Visi Misi</a></li>
+                        <li><a href="{{ route('profile-bidang.index') }}#staff"
+                                class="block py-2 hover:bg-green-600 rounded">Staff</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="border-b border-green-600 pb-2">
+                <a href="{{ route('program.index') }}" class="block py-2 hover:bg-green-600 rounded">Program</a>
+            </li>
+
+            <li class="border-b border-green-600 pb-2">
+                <a href="#" class="block py-2 hover:bg-green-600 rounded">Jurnal</a>
+            </li>
+
+            <li class="border-b border-green-600 pb-2">
+                <a href="{{ route('anouncement.index') }}" class="block py-2 hover:bg-green-600 rounded">Informasi</a>
+            </li>
+
+            <li class="border-b border-green-600 pb-2">
+                <a href="{{ route('download.index') }}" class="block py-2 hover:bg-green-600 rounded">Download</a>
+            </li>
         </ul>
 
         <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
+            document.addEventListener('DOMContentLoaded', () => {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuClose = document.getElementById('mobile-menu-close');
+                const profileDropdown = document.querySelector('.profile-dropdown');
+                const profileSubmenu = profileDropdown.querySelector('ul');
+                const profileToggle = profileDropdown.querySelector('a');
 
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                // Open mobile menu
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                });
+
+                // Close mobile menu
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    // Reset profile submenu
+                    profileSubmenu.classList.add('hidden');
+                    const svg = profileToggle.querySelector('svg');
+                    svg.style.transform = 'rotate(0deg)';
+                });
+
+                // Toggle profile submenu
+                profileToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    profileSubmenu.classList.toggle('hidden');
+
+                    // Rotate dropdown icon
+                    const svg = profileToggle.querySelector('svg');
+                    svg.style.transform = profileSubmenu.classList.contains('hidden') ?
+                        'rotate(0deg)' :
+                        'rotate(180deg)';
+                });
             });
         </script>
     </div>
@@ -304,5 +363,20 @@
 
     * {
         scroll-behavior: smooth;
+    }
+</style>
+
+<style>
+    #mobile-menu {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #mobile-menu li {
+        transition: background-color 0.3s ease;
+    }
+
+    .profile-dropdown svg {
+        transition: transform 0.3s ease;
     }
 </style>

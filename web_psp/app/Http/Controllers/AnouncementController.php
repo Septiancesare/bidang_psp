@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class AnouncementController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $anounce = Anouncement::orderBy('created_at')->paginate(25);
+        $query = $request->input('search');
+
+        $anounce = Anouncement::when($query, function ($q) use ($query) {
+            return $q->where('title', 'like', '%' . $query . '%');
+        })->orderBy('created_at')->paginate(25);
+
         return view('anouncement', compact('anounce'));
     }
 
