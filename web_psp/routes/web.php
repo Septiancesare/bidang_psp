@@ -28,6 +28,7 @@ Route::get('/informasi/{id}', [AnouncementController::class, 'show'])->name('ano
 
 Route::get('/download/', [DownloadController::class, 'index'])->name('download.index');
 Route::get('/download/{id}', [DownloadController::class, 'download'])->name('download.download');
+Route::get('/download/view/{id}', [DownloadController::class, 'view'])->name('download.view');
 
 
 Route::get('/profile-psp', [ProfileBidangController::class, 'index'])->name('profile-bidang.index');

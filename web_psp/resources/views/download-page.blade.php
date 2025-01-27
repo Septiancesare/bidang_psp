@@ -11,7 +11,7 @@
                 <input type="text" name="search" placeholder="Cari dokumen..." value="{{ request('search') }}"
                     class="w-full px-4 py-2 border border-gray-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                 <button type="submit"
-                    class="bg-green-500 text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition duration-300">
+                    class="bg-green-600 text-white px-4 py-2 rounded-r-lg hover:bg-green-700 transition duration-300">
                     Cari
                 </button>
             </form>
@@ -31,19 +31,20 @@
                     </div>
                 @else
                     @foreach ($file as $item)
-                        <a href="{{ route('download.download', $item->id) }}">
-                            <div
-                                class="card-download flex items-center gap-4 bg-white shadow-lg rounded-lg my-3 p-5 hover:bg-green-100">
-                                <div class="icon-anouncement">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="size-6">
-                                        <path
-                                            d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625Z" />
-                                        <path
-                                            d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
-                                    </svg>
-                                </div>
-                                <div class="content-card-anouncement flex flex-col gap-2">
+                        {{-- <a href="{{ route('download.download', $item->id) }}"> --}}
+                        <div
+                            class="card-download flex items-center gap-4 bg-white shadow-lg rounded-lg my-3 p-5 hover:bg-green-100 transition duration-300">
+                            <div class="icon-anouncement">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6">
+                                    <path
+                                        d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625Z" />
+                                    <path
+                                        d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z" />
+                                </svg>
+                            </div>
+                            <div class="content-card-anouncement flex justify-between gap-2 items-center w-full">
+                                <div class="flex flex-col">
                                     <div class="card-title text-xl font-bold">
                                         <h2>{{ $item->title }}</h2>
                                     </div>
@@ -51,8 +52,20 @@
                                         {{ $item->created_at->format('Y-m-d') }}
                                     </div>
                                 </div>
+
+                                <div class="button-download flex gap-4">
+                                    <a href="{{ route('download.view', $item->id) }}"
+                                        class=" text-green-500 px-4 py-2 rounded-lg border hover:bg-green-600 hover:text-white transition duration-300">
+                                        Lihat
+                                    </a>
+                                    <a href="{{ route('download.download', $item->id) }}"
+                                        class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300">
+                                        Download
+                                    </a>
+                                </div>
                             </div>
-                        </a>
+                        </div>
+                        {{-- </a> --}}
                     @endforeach
 
                     {{-- Pagination Links --}}

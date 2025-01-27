@@ -24,10 +24,11 @@
             </svg>
         </button>
 
-        <ul class="hidden md:flex items-center gap-6 tracking-wider z-10">
-            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('welcome') }}">Beranda</a></li>
-            <li class="relative group">
-                <a href="#" class="nav-item flex items-center gap-2 p-2 hover:bg-green-800">
+        <ul class="hidden md:flex items-center gap-6 tracking-wider z-10 ">
+            <li class="nav-item p-2 hover:bg-green-800 transition duration-400 rounded-md"><a
+                    href="{{ route('welcome') }}">Beranda</a></li>
+            <li class="relative group rounded-md">
+                <a href="#" class="nav-item flex items-center gap-2 p-2 hover:bg-green-800 rounded-md">
                     Profile
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
                         <path
@@ -36,7 +37,8 @@
                 </a>
 
                 <!-- Dropdown Menu -->
-                <ul class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap">
+                <ul
+                    class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap transition duration-400">
                     <li><a href="{{ route('profile-bidang.index') }}" class="block px-4 py-2 hover:bg-gray-200">Profil
                             Bidang</a>
                     </li>
@@ -47,10 +49,10 @@
                             class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
                 </ul>
             </li>
-            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('program.index') }}">Program</a></li>
-            <li class="nav-item p-2 hover:bg-green-800"><a href="#">Jurnal</a></li>
-            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('anouncement.index') }}">Informasi</a></li>
-            <li class="nav-item p-2 hover:bg-green-800"><a href="{{ route('download.index') }}">Download</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('program.index') }}">Program</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="#">Jurnal</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('anouncement.index') }}">Informasi</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('download.index') }}">Download</a></li>
         </ul>
 
         <!-- Mobile Menu -->

@@ -86,7 +86,7 @@
 
             <div class="button-more-program flex justify-center">
                 <a href="{{ route('program.index') }}"
-                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Baca
+                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 hover:bg-gradient-to-t from-black/50 to-transparent">Baca
                     Selengkapnya</a>
             </div>
         </div>
@@ -141,7 +141,7 @@
             @foreach ($news as $item)
                 <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
                     <div
-                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md ">
+                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md transition duration-300">
                         <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
                             class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
                         <div class="news-card-info">
@@ -161,7 +161,7 @@
 
             <div class="button-more-news flex justify-center">
                 <a href="{{ route('news.index') }}"
-                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white hover:bg-gradient-to-t from-black/50 to-transparent">Berita
+                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 hover:bg-gradient-to-t from-black/50 to-transparent">Berita
                     Selengkapnya</a>
             </div>
 

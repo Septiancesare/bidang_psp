@@ -12,8 +12,10 @@
                     </div>
                 @else
                     <div class="faq-card shadow-lg text-lg tracking-wider my-6">
-                        <div class="faq-content-title my-4 font-bold flex justify-between" onclick="toggleAnswer(this)">
-                            <h2>Q: {{ $question->question }}</h2>
+                        <div class="faq-content-title my-4 font-bold flex justify-between items-center"
+                            onclick="toggleAnswer(this)">
+                            <h2> <span class="bg-green-500 p-2 text-white rounded-md mx-3">Question</span>
+                                {{ $question->question }}</h2>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6">
                                 <path fill-rule="evenodd"
@@ -24,7 +26,9 @@
                         </div>
                         <div class="faq-content-desc my-4">
                             <hr class="my-4 border-2 border-green-300">
-                            <p> <strong>A:</strong> {!! $question->answer !!}</p>
+                            {{-- <p> <span class="bg-green-300 font-bold p-3 rounded-md my-2">Answer</span> --}}
+                            {!! $question->answer !!}
+                            </p>
                         </div>
                     </div>
                 @endif
