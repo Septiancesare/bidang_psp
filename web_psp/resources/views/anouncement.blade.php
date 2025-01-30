@@ -34,12 +34,8 @@
                         <div
                             class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100 transition duration-300 mb-4">
                             <div class="icon-anouncement">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                                <img src="{{ asset('assets/anouncement-image.png') }}" alt="icon anouncement"
+                                    width="100" class="rounded-lg">
                             </div>
                             <div class="content-card-anouncement flex flex-col gap-2">
                                 <div class="card-title text-xl font-bold">
@@ -47,6 +43,14 @@
                                 </div>
                                 <div class="card-date text-sm text-gray-500">
                                     {{ $item->created_at->format('Y-m-d') }}
+                                </div>
+                                <div class="by flex gap-4 items-center text-green-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15"
+                                        height="15" fill="currentColor">
+                                        <path
+                                            d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z" />
+                                    </svg>
+                                    <p class="">Admin</p>
                                 </div>
                             </div>
                         </div>

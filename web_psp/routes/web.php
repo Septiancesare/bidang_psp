@@ -23,6 +23,16 @@ Route::get('/program', function () {
 })->name('program');
 Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
 
+// In web.php
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
+
+// Add the fallback route at the end of the file
+Route::fallback(function () {
+    return view('404');
+});
+
 Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
