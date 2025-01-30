@@ -9,6 +9,15 @@
             <div id="imageModal" class="modal">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <img class="modal-content shadow-xl" id="modalImage">
+                <div class="modal-controls">
+                    <a href="#" id="downloadButton" class="download-btn" title="Download Image">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    </a>
+                </div>
                 <div class="caption" id="modalCaption"></div>
                 <button class="prev" onclick="changeImage(-1)">&#10094;</button>
                 <button class="next" onclick="changeImage(1)">&#10095;</button>
@@ -43,6 +52,7 @@
                                     <div class="image-container overflow-hidden relative group">
                                         <img src="{{ asset('storage/' . $picture->file) }}" alt="{{ $picture->name }}"
                                             class="w-full h-full object-cover transition-transform duration-500"
+                                            data-id="{{ $picture->id }}" data-index="{{ $index }}"
                                             width="400" height="200"
                                             onclick="openModal(this, {{ $index }})">
                                         <div
@@ -104,8 +114,19 @@
             galleryImages.forEach((img) => {
                 images.push({
                     src: img.src,
-                    alt: img.alt
+                    alt: img.alt,
+                    id: img.dataset.id
                 });
+            });
+
+            // Add click handler for download button
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currentImage = images[currentIndex];
+                if (currentImage && currentImage.id) {
+                    window.location.href = `/gallery/${currentImage.id}`;
+                }
             });
         });
 
@@ -114,11 +135,14 @@
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("modalCaption");
+            const downloadButton = document.getElementById("downloadButton");
 
             currentIndex = index;
             modal.style.display = "block";
             modalImg.src = imgElement.src;
             captionText.textContent = imgElement.alt;
+
+            downloadButton.href = `/gallery/${imgElement.dataset.id}`;
 
             // Add event listeners
             document.addEventListener('keydown', handleKeyPress);
@@ -144,6 +168,7 @@
 
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("modalCaption");
+            const downloadButton = document.getElementById("downloadButton");
 
             // Add a fade effect
             modalImg.style.opacity = '0';
@@ -151,6 +176,7 @@
             setTimeout(() => {
                 modalImg.src = images[currentIndex].src;
                 captionText.textContent = images[currentIndex].alt;
+                downloadButton.href = `/gallery/${images[currentIndex].id}`;
                 modalImg.style.opacity = '1';
             }, 200);
         }
@@ -181,6 +207,30 @@
     </script>
 
     <style>
+        .modal-controls {
+            position: absolute;
+            top: 15px;
+            right: 85px;
+            /* Positioned to the left of the close button */
+            z-index: 1001;
+        }
+
+        .download-btn {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
         .card-management img {
             height: 300px;
             /* Sesuaikan dengan tinggi yang diinginkan */

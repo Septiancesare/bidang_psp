@@ -22,4 +22,21 @@ class GalleryController extends Controller
             'currentSort' => $sort
         ]);
     }
+
+    public function download($id)
+    {
+        // Temukan file berdasarkan ID
+        $file = Gallery::findOrFail($id);
+
+        // Path lengkap ke file di public/storage/uploads
+        $filePath = public_path('storage/' . $file->file);
+
+        // Cek apakah file ada di path tersebut
+        if (!file_exists($filePath)) {
+            return back()->with('error', 'File not found.');
+        }
+
+        // Kirim respons untuk mengunduh file
+        return response()->download($filePath, basename($file->file));
+    }
 }

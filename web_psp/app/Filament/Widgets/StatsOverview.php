@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Gallery;
 use App\Models\News;
 use App\Models\User;
 use App\Models\MemberData;
@@ -20,6 +21,8 @@ class StatsOverview extends BaseWidget
         // Jumlah berita
         $newsCount = News::count();
 
+        $imageCount = Gallery::count();
+
         // Jumlah data anggota
         $memberDataCount = MemberData::count();
 
@@ -36,6 +39,10 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-s-book-open', IconPosition::Before)
                 ->description('Total news available')
                 ->color('info'),
+            Stat::make('Gallery', $imageCount)
+                ->descriptionIcon('heroicon-s-book-open', IconPosition::Before)
+                ->description('Total image on gallery available')
+                ->color('danger'),
 
             Stat::make('Member Data', $memberDataCount)
                 ->descriptionIcon('heroicon-s-users', IconPosition::Before)

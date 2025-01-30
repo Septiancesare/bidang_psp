@@ -15,6 +15,7 @@ use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\AnouncementController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ProfileBidangController;
+use App\Models\Gallery;
 
 Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
 Route::get('/program', function () {
@@ -23,7 +24,9 @@ Route::get('/program', function () {
 Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
 
 Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
+
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::get('/gallery/{id}', [GalleryController::class, 'download'])->name('gallery.download');
 
 
 Route::get('/informasi', [AnouncementController::class, 'index'])->name('anouncement.index');
