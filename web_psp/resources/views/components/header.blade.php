@@ -47,12 +47,17 @@
                             Misi</a></li>
                     <li><a href="{{ route('profile-bidang.index') }}#staff"
                             class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
+                    <li><a href="{{ route('gallery.index') }}" class="block px-4 py-2 hover:bg-gray-200">Gallery</a>
+                    </li>
                 </ul>
             </li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('program.index') }}">Program</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('program.index') }}">Program</a>
+            </li>
             <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="#">Jurnal</a></li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('anouncement.index') }}">Informasi</a></li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('download.index') }}">Download</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a
+                    href="{{ route('anouncement.index') }}">Informasi</a></li>
+            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('download.index') }}">Download</a>
+            </li>
         </ul>
 
         <!-- Mobile Menu -->
@@ -91,6 +96,7 @@
                                 class="block py-2 hover:bg-green-600 rounded">Visi Misi</a></li>
                         <li><a href="{{ route('profile-bidang.index') }}#staff"
                                 class="block py-2 hover:bg-green-600 rounded">Staff</a></li>
+                        <li><a href="{{ route('gallery.index') }}" class="block py-2 hover:bg-green-600 rounded">Gallery</a></li>
                     </ul>
                 </div>
             </li>

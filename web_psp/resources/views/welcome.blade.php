@@ -249,6 +249,15 @@
 
         modalImg.src = images[currentIndex].src;
         captionText.textContent = images[currentIndex].alt;
+
+        // Add a fade effect
+        modalImg.style.opacity = '0';
+
+        setTimeout(() => {
+            modalImg.src = images[currentIndex].src;
+            captionText.textContent = images[currentIndex].alt;
+            modalImg.style.opacity = '1';
+        }, 200);
     }
 
     function handleKeyPress(event) {
@@ -330,14 +339,21 @@
     }
 
     .modal-content {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         max-width: 90%;
-        margin-top: 20px;
         max-height: 90%;
         border-radius: 10px;
+    }
+
+    /* Tambahan untuk mobile view */
+    @media (max-width: 768px) {
+        .modal-content {
+            max-width: 100%;
+            max-height: 80%;
+        }
     }
 
     .close {
@@ -378,7 +394,8 @@
         font-size: 18px;
         transition: 0.3s;
         border: none;
-        background-color: transparent;
+        border-radius: 10px;
+        background-color: black;
         z-index: 1002;
     }
 

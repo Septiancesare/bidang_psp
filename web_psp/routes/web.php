@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\DownloadController;
@@ -22,6 +23,8 @@ Route::get('/program', function () {
 Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
 
 Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+
 
 Route::get('/informasi', [AnouncementController::class, 'index'])->name('anouncement.index');
 Route::get('/informasi/{id}', [AnouncementController::class, 'show'])->name('anouncement.read');

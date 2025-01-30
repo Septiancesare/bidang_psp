@@ -274,7 +274,6 @@
     /* Container untuk modal */
     .modal {
         display: none;
-        /* Modal tersembunyi secara default */
         position: fixed;
         z-index: 1000;
         left: 0;
@@ -283,20 +282,24 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.8);
-        /* Latar belakang gelap */
     }
 
-    /* Konten modal */
     .modal-content {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         max-width: 90%;
-        /* Batas ukuran gambar */
-        margin-top: 20px;
         max-height: 90%;
         border-radius: 10px;
+    }
+
+    /* Tambahan untuk mobile view */
+    @media (max-width: 768px) {
+        .modal-content {
+            max-width: 100%;
+            max-height: 80%;
+        }
     }
 
     /* Close button */
