@@ -34,8 +34,8 @@
                 </div>
             </div>
             <div class="sidebar p-2 bg-slate-50 lg:w-4/5 rounded-md mt-24 ">
-                <div class="title-sidebar text-2xl  my-3 text-center tracking-widest">
-                    <h1>RECENT NEWS</h1>
+                <div class="title-sidebar text-2xl  my-3 text-center tracking-widest encode-sans-sc">
+                    <h1>Recent News</h1>
                     <hr class="border-2 border-green-500 my-3">
                 </div>
                 <div class="content-recent">

@@ -43,15 +43,14 @@ class User extends Authenticatable implements FilamentUser
         return match ($panel->getId()) {
             'admin' => $this->isAdmin(),
             'user' => $this->isUser(),
-            default => str_ends_with($this->email, '@psp.com'),
+            default => false,
         };
     }
 
     // Helper methods for role checking
     private function isAdmin(): bool
     {
-        return $this->role === 'admin' &&
-            (str_ends_with($this->email, '@yourdomain.com') || str_ends_with($this->email, '@psp.com'));
+        return $this->role === 'admin';
     }
 
 

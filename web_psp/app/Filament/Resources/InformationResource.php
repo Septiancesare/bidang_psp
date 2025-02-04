@@ -19,6 +19,8 @@ class InformationResource extends Resource
     protected static ?string $model = Information::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-information-circle';
+    protected static ?string $navigationLabel = 'Informasi Profile';
+    protected static ?string $navigationGroup = 'Profile';
 
     public static function form(Form $form): Form
     {

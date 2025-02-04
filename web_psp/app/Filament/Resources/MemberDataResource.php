@@ -18,6 +18,7 @@ class MemberDataResource extends Resource
     protected static ?string $model = MemberData::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-users';
+    protected static ?string $navigationGroup = 'Profile';
 
     public static function form(Form $form): Form
     {

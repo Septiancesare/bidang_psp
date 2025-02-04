@@ -19,6 +19,8 @@ class ProgramResource extends Resource
     protected static ?string $model = Program::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-presentation-chart-bar';
+    protected static ?string $navigationLabel = 'Program Image';
+    protected static ?string $navigationGroup = 'Profile';
 
     public static function form(Form $form): Form
     {

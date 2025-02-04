@@ -39,7 +39,7 @@
         {{-- Section for profile company  --}}
         <div class="profile-bidang text-center mx-12">
             <div>
-                <header class="font-bold " id="profile-bidang">
+                <header class="font-bold " id="profile-bidang fade-up">
                     <h1 class="profile-header text-lg text-slate-500 tracking-widest">Profile</h1>
                     <h2 class="profile-bidang-header text-3xl text-green-900 tracking-wider">Bidang Penyuluhan, Sarana,
                         dan
@@ -48,7 +48,7 @@
                     <h3 class="profile-dinas-header text-2xl text-green-900 tracking-wider">Dinas Pertanian Kabupaten
                         Grobogan</h3>
                 </header>
-                <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7  ">
+                <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7 fade-up">
                     {!! $profilebidang->description !!}
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 @endphp
 
                 @foreach ($chunks as $chunk)
-                    <div class="line-break lg:flex justify-center gap-1 mb-1">
+                    <div class="line-break lg:flex justify-center gap-1 mb-1 stagger">
                         @foreach ($chunk as $program)
                             <div class="program-card">
                                 <div class="image-container overflow-hidden">
@@ -84,7 +84,7 @@
             </div>
 
 
-            <div class="button-more-program flex justify-center">
+            <div class="button-more-program flex justify-center stagger">
                 <a href="{{ route('program.index') }}"
                     class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 hover:bg-gradient-to-t from-black/50 to-transparent">Baca
                     Selengkapnya</a>
@@ -95,11 +95,11 @@
     {{-- Section for company Management  --}}
     <div class="management-bidang text-center my-28 ">
         <header>
-            <h2 class="management-bidang-header text-3xl text-green-900 font-bold">Tata Kelola Bidang PSP</h2>
+            <h2 class="management-bidang-header text-3xl text-green-900 font-bold fade-up">Tata Kelola Bidang PSP</h2>
         </header>
         <div class="management-bidang-content ">
             {{-- card pimpinan --}}
-            <div class="management-line flex justify-center">
+            <div class="management-line flex justify-center fade-up">
                 <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
                     <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}" alt="">
                     <div class="card-management-info text-center mt-4">
@@ -115,7 +115,7 @@
             {{-- Card staff line 3  --}}
             <div class="management-line flex flex-wrap justify-center gap-10">
                 @foreach ($staff as $person)
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
+                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 stagger">
                         <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
                         <div class="card-management-info text-center mt-4">
                             <h2 class="font-bold">
@@ -133,7 +133,7 @@
     {{-- Section for News  --}}
     <div class="news-bidang text-center">
         <header class="font-bold">
-            <h2 class="news-bidang-header text-3xl text-green-900">Berita Terkini</h2>
+            <h2 class="news-bidang-header text-3xl text-green-900 stagger">Berita Terkini</h2>
         </header>
         <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
 
@@ -141,7 +141,7 @@
             @foreach ($news as $item)
                 <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
                     <div
-                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md transition duration-300">
+                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md transition duration-300 stagger">
                         <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
                             class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
                         <div class="news-card-info">
@@ -151,7 +151,14 @@
                             <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
                                 {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
                             </div>
-                            <div class="date-news">
+                            <div class="date-news flex items-center gap-3">
+                                <div class="news-admin flex gap-2 text-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="13">
+                                        <path
+                                            d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
+                                    </svg>
+                                    <p>Admin</p>
+                                </div>
                                 <p class="text-green-500 text-sm ">{{ $item->created_at->format('Y-m-d') }}</p>
                             </div>
                         </div>
@@ -159,7 +166,7 @@
                 </a>
             @endforeach
 
-            <div class="button-more-news flex justify-center">
+            <div class="button-more-news flex justify-center stagger">
                 <a href="{{ route('news.index') }}"
                     class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 hover:bg-gradient-to-t from-black/50 to-transparent">Berita
                     Selengkapnya</a>
@@ -438,3 +445,93 @@
         padding: 0.5rem 0;
     }
 </style>
+
+<style>
+    .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+    }
+
+    .scale-up {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scale-up.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Add stagger effect for children */
+    .stagger>* {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .stagger.visible>* {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stagger.visible>*:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .stagger.visible>*:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .stagger.visible>*:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .stagger.visible>*:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to check if element is in viewport
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: unobserve after animation
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        // Create the observer
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        // Observe elements with animation classes
+        document.querySelectorAll('.fade-up, .fade-in, .scale-up, .stagger').forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>

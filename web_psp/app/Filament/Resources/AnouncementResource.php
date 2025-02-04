@@ -19,6 +19,8 @@ class AnouncementResource extends Resource
     protected static ?string $model = Anouncement::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-megaphone';
+    protected static ?string $navigationGroup = 'Info';
+
 
     public static function form(Form $form): Form
     {

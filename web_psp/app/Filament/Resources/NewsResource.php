@@ -24,6 +24,7 @@ class NewsResource extends Resource
     protected static ?string $model = News::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-book-open';
+    protected static ?string $navigationGroup = 'Info';
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
@@ -68,7 +69,7 @@ class NewsResource extends Resource
                             ->image()
                             ->acceptedFileTypes(['image/jpeg', 'image/png'])
                             ->getUploadedFileNameForStorageUsing(function ($file) {
-                                return $file->getClientOriginalName(); 
+                                return $file->getClientOriginalName();
                             }),
 
                         //content

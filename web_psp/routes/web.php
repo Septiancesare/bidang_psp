@@ -18,10 +18,15 @@ use App\Http\Controllers\ProfileBidangController;
 use App\Models\Gallery;
 
 Route::get('/', [NewsController::class, 'indexWelcome'])->name('welcome');
-Route::get('/program', function () {
-    return view('program');
-})->name('program');
-Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
+
+
+Route::prefix('profile')->group(function () {
+    Route::get('/program', [ProgramController::class, 'index'])->name('program.index');
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::get('/gallery/{id}', [GalleryController::class, 'download'])->name('gallery.download');
+    Route::get('/profile-psp', [ProfileBidangController::class, 'index'])->name('profile-bidang.index');
+});
+
 
 // In web.php
 Route::get('/404', function () {
@@ -35,37 +40,35 @@ Route::fallback(function () {
 
 Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-Route::get('/gallery/{id}', [GalleryController::class, 'download'])->name('gallery.download');
 
 
-Route::get('/informasi', [AnouncementController::class, 'index'])->name('anouncement.index');
-Route::get('/informasi/{id}', [AnouncementController::class, 'show'])->name('anouncement.read');
+Route::prefix('info')->group(function () {
+    Route::get('/informasi', [AnouncementController::class, 'index'])->name('anouncement.index');
+    Route::get('/informasi/{id}', [AnouncementController::class, 'show'])->name('anouncement.read');
 
-Route::get('/download/', [DownloadController::class, 'index'])->name('download.index');
-Route::get('/download/{id}', [DownloadController::class, 'download'])->name('download.download');
-Route::get('/download/view/{id}', [DownloadController::class, 'view'])->name('download.view');
+    Route::get('/download', [DownloadController::class, 'index'])->name('download.index');
+    Route::get('/download/{id}', [DownloadController::class, 'download'])->name('download.download');
+    Route::get('/download/view/{id}', [DownloadController::class, 'view'])->name('download.view');
+
+    Route::get('/news/{id}', [NewsController::class, 'show'])->name('news-page.read');
+    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
+    Route::get('/news/read', function () {
+        return view('read-news-page');
+    })->name('newspage.read');
+});
 
 
-Route::get('/profile-psp', [ProfileBidangController::class, 'index'])->name('profile-bidang.index');
 
 // Route::get('/news', function () {
 //     return view('news-page');
 // })->name('newspage');
 
-Route::get('/news/{id}', [NewsController::class, 'show'])->name('news-page.read');
-Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-
-Route::get('/news/read', function () {
-    return view('read-news-page');
-})->name('newspage.read');
 
 Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [NewsController::class, 'indexWelcome'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

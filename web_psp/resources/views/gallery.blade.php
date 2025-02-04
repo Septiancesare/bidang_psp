@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container-gallery">
         <div class="gallery min-h-screen">
-            <div class="title-gallery text-center font-bold text-3xl m-4">
+            <div class="title-gallery text-center font-bold text-3xl m-4 fade-up">
                 <h1>Gallery of PSP</h1>
             </div>
 
@@ -40,7 +40,7 @@
 
                 @if ($pict->isEmpty())
                     <div
-                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 my-24">
+                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 my-24 fade-up">
                         <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
                         <p>Belum ada gambar yang dibagikan.</p>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="gallery my-3 lg:mx-56">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             @foreach ($pict as $index => $picture)
-                                <div class="gallery-card">
+                                <div class="gallery-card fade-up">
                                     <div class="image-container overflow-hidden relative group">
                                         <img src="{{ asset('storage/' . $picture->file) }}" alt="{{ $picture->name }}"
                                             class="w-full h-full object-cover transition-transform duration-500"

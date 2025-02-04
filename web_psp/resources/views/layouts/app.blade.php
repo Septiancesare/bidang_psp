@@ -11,6 +11,13 @@
     <link rel="shortcut icon" href="{{ asset('assets/Lambang_Grobogan.png') }}" type="image/x-icon">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    {{-- font  --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+
+
+
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -37,6 +44,15 @@
             transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
+        .encode-sans-sc {
+            font-family: "Encode Sans SC", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
     </style>
 </head>
 
@@ -45,7 +61,7 @@
         @include('components.header')
     </div>
 
-    <main>
+    <main class="mt-20 ">
         {{ $slot }}
     </main>
 
@@ -299,3 +315,93 @@
 </script>
 
 </html>
+
+<style>
+    .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+    }
+
+    .scale-up {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scale-up.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Add stagger effect for children */
+    .stagger>* {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .stagger.visible>* {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stagger.visible>*:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .stagger.visible>*:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .stagger.visible>*:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .stagger.visible>*:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to check if element is in viewport
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: unobserve after animation
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        // Create the observer
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        // Observe elements with animation classes
+        document.querySelectorAll('.fade-up, .fade-in, .scale-up, .stagger').forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>

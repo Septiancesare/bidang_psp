@@ -1,7 +1,7 @@
-<header
-    class="bg-green-800 p-2  tracking-wider lg:flex justify-between lg:px-10 items-center bg-gradient-to-t from-black/50 to-transparent gap-10">
+<header id="main-header"
+    class="fixed w-full top-0 z-50 transition-all duration-300 bg-white p-2  tracking-wider lg:flex justify-between lg:px-10 items-center bg-gradient-to-t from-green-50  to-transparent gap-10">
     <!-- Bagian header yang berisi logo dan judul utama -->
-    <div class="header flex justify-center gap-3 text-white ">
+    <div class="header flex justify-center gap-3 text-green-700  ">
         <!-- Logo Kabupaten Grobogan -->
         <div class="logo-kabupaten">
             <img src="{{ asset('assets/Lambang_Grobogan.png') }}" alt="grobogan" class="h-12">
@@ -16,7 +16,7 @@
     </div>
 
     {{-- navigasi halaman  --}}
-    <div class="flex nav items-center lg:justify-center h-10 text-white">
+    <div class="flex nav items-center lg:justify-center h-10 text-black">
         <button id="menu-toggle" class="block md:hidden focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -25,12 +25,12 @@
         </button>
 
         <ul class="hidden md:flex items-center gap-6 tracking-wider z-10 ">
-            <li class="nav-item p-2 hover:bg-green-800 transition duration-400 rounded-md"><a
-                    href="{{ route('welcome') }}">Beranda</a></li>
+            <li class="nav-item p-2  transition duration-400 rounded-md"><a href="{{ route('welcome') }}">Beranda</a>
+            </li>
             <li class="relative group rounded-md">
-                <a href="#" class="nav-item flex items-center gap-2 p-2 hover:bg-green-800 rounded-md">
+                <a href="#" class="nav-item flex items-center gap-2 p-2  rounded-md">
                     Profile
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000" viewBox="0 0 320 512">
                         <path
                             d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                     </svg>
@@ -49,14 +49,36 @@
                             class="block px-4 py-2 hover:bg-gray-200">Staff</a></li>
                     <li><a href="{{ route('gallery.index') }}" class="block px-4 py-2 hover:bg-gray-200">Gallery</a>
                     </li>
+                    <li class="block px-4 py-2 hover:bg-gray-200"><a href="{{ route('program.index') }}">Program</a>
+                    </li>
                 </ul>
             </li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('program.index') }}">Program</a>
+
+            <li class="relative group rounded-md">
+                <a href="#" class="nav-item flex items-center gap-2 p-2  rounded-md">
+                    Info
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000" viewBox="0 0 320 512">
+                        <path
+                            d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                    </svg>
+                </a>
+
+                <!-- Dropdown Menu -->
+                <ul
+                    class="hidden group-hover:block absolute bg-white text-black rounded shadow-lg whitespace-nowrap transition duration-400">
+                    <li><a href="{{ route('anouncement.index') }}"
+                            class="block px-4 py-2 hover:bg-gray-200">Informasi</a>
+                    </li>
+                    <li><a href="{{ route('download.index') }}" class="block px-4 py-2 hover:bg-gray-200">Download</a>
+                    </li>
+                    <li><a href="{{ route('news.index') }}#visi-misi"
+                            class="block px-4 py-2 hover:bg-gray-200">Berita</a></li>
+
+                </ul>
             </li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="#">Jurnal</a></li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a
-                    href="{{ route('anouncement.index') }}">Informasi</a></li>
-            <li class="nav-item p-2 hover:bg-green-800 rounded-md"><a href="{{ route('download.index') }}">Download</a>
+            <li class="nav-item p-2  rounded-md"><a href="#">Jurnal</a></li>
+            <li class="nav-item p-2  rounded-md"><a href="{{ route('faq.index') }}">FAQ</a></li>
+
             </li>
         </ul>
 
@@ -83,7 +105,7 @@
                 <div class="profile-dropdown">
                     <a href="#" class="flex justify-between items-center py-2 hover:bg-green-600 rounded">
                         <span>Profil</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#ffffff" viewBox="0 0 320 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000" viewBox="0 0 320 512">
                             <path
                                 d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                         </svg>
@@ -96,26 +118,48 @@
                                 class="block py-2 hover:bg-green-600 rounded">Visi Misi</a></li>
                         <li><a href="{{ route('profile-bidang.index') }}#staff"
                                 class="block py-2 hover:bg-green-600 rounded">Staff</a></li>
-                        <li><a href="{{ route('gallery.index') }}" class="block py-2 hover:bg-green-600 rounded">Gallery</a></li>
+                        <li><a href="{{ route('gallery.index') }}"
+                                class="block py-2 hover:bg-green-600 rounded">Gallery</a></li>
+                        <li>
+                            <a href="{{ route('program.index') }}"
+                                class="block py-2 hover:bg-green-600 rounded">Program</a>
+                        </li>
                     </ul>
                 </div>
             </li>
 
             <li class="border-b border-green-600 pb-2">
-                <a href="{{ route('program.index') }}" class="block py-2 hover:bg-green-600 rounded">Program</a>
+                <div class="profile-dropdown">
+                    <a href="#" class="flex justify-between items-center py-2 hover:bg-green-600 rounded">
+                        <span>Info</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000" viewBox="0 0 320 512">
+                            <path
+                                d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                        </svg>
+                    </a>
+
+                    <ul class="ml-4 mt-2 hidden">
+                        <li><a href="{{ route('anouncement.index') }}"
+                                class="block py-2 hover:bg-green-600 rounded">Informasi</a></li>
+                        <li><a href="{{ route('download.index') }}"
+                                class="block py-2 hover:bg-green-600 rounded">Download</a></li>
+                        <li><a href="{{ route('news.index') }}#staff"
+                                class="block py-2 hover:bg-green-600 rounded">Berita</a></li>
+
+                    </ul>
+                </div>
             </li>
+
 
             <li class="border-b border-green-600 pb-2">
                 <a href="#" class="block py-2 hover:bg-green-600 rounded">Jurnal</a>
             </li>
 
             <li class="border-b border-green-600 pb-2">
-                <a href="{{ route('anouncement.index') }}" class="block py-2 hover:bg-green-600 rounded">Informasi</a>
+                <a href="{{ route('faq.index') }}" class="block py-2 hover:bg-green-600 rounded">FAQ</a>
             </li>
 
-            <li class="border-b border-green-600 pb-2">
-                <a href="{{ route('download.index') }}" class="block py-2 hover:bg-green-600 rounded">Download</a>
-            </li>
+
         </ul>
 
         <script>
@@ -251,13 +295,13 @@
                 </nav>
             @else
                 <a href="{{ route('login') }}"
-                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-green-300  focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300  focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                     Log in
                 </a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                        class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-green-300 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-green-300 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                         Register
                     </a>
                 @endif
@@ -266,21 +310,36 @@
     @endif
 </header>
 
-<!-- Running text (teks berjalan) untuk menampilkan jam operasional -->
-<div class="running-text overflow-hidden whitespace-nowrap relative w-screen bg-green-100">
-    <p class="text-running">Jam Operasional : Senin - Jumat pukul 08.00 - 16.00 WIB</p>
-</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('main-header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            // Add scrolled class when page is scrolled down
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    });
+</script>
 
 <style>
-    /* Mengatur tinggi elemen teks berjalan */
-    .running-text {
-        position: relative;
-        height: 1.6em;
+    #main-header {
+        transition: all 0.3s ease;
     }
 
-    /* Menambahkan animasi pada teks berjalan */
-    .text-running {
-        animation: runningText 20s linear infinite;
+    #main-header.scrolled {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     /* Definisi animasi untuk teks berjalan dari kanan ke kiri */
@@ -365,8 +424,8 @@
     }
 
     .nav-item:hover {
-        background-color: #2f855a;
-        color: white;
+
+        color: #00b944;
     }
 
     * {

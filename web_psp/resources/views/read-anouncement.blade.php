@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="info-container mx-5 p-5 my-5 lg:mx-24 bg-slate-100 rounded-md shadow-2xl">
+    <div class="info-container mx-5 p-5 my-5 lg:mx-24 bg-slate-50 rounded-md shadow-2xl">
         <div class="info-title text-center dm-serif-text-regular text-3xl my-5">
             <h1>Informasi</h1>
         </div>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="anouncement-container min-h-screen">
-        <div class="title-anouncement py-5">
-            <h1 class="text-center font-bold text-2xl">INFORMASI</h1>
+        <div class="title-anouncement py-7 fade-up">
+            <h1 class="text-center font-bold text-3xl">INFORMASI</h1>
         </div>
 
         {{-- Search Form --}}
@@ -18,7 +18,7 @@
 
         <div class="content-anouncement lg:mx-64 px-10 my-6 mb-20">
             @if ($anounce->isEmpty())
-                <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4">
+                <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
                     <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
                     <p>
                         @if (request('search'))
@@ -32,7 +32,7 @@
                 @foreach ($anounce as $item)
                     <a href="{{ route('anouncement.read', ['id' => $item->id]) }}">
                         <div
-                            class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100 transition duration-300 mb-4">
+                            class="card-anouncement flex items-center gap-4 bg-white shadow-lg rounded-lg p-5 hover:bg-green-100 transition duration-300 mb-4 fade-up">
                             <div class="icon-anouncement">
                                 <img src="{{ asset('assets/anouncement-image.png') }}" alt="icon anouncement"
                                     width="100" class="rounded-lg">
