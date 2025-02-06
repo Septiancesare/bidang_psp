@@ -55,6 +55,7 @@ class UserResource extends Resource
                     ->sortable()
                     ->searchable(),
             ])
+
             ->filters([
                 //
             ])

@@ -36,6 +36,14 @@ class MemberDataResource extends Resource
                         'Staff' => 'Staff',
                     ])
                     ->required(),
+                Forms\Components\Radio::make('division_member')
+                    ->label('Divisi')
+                    ->options([
+                        'Penyuluhan' => 'Penyuluhan',
+                        'Pembiayaan Lahan Air' => 'Pembiayaan Lahan Air',
+                        'Pupuk dan Pestisida' => 'Pupuk dan Pestisida',
+                        'Alat dan Mesin Pertanian' => 'Alat dan Mesin Pertanian',
+                    ]),
                 Forms\Components\FileUpload::make('image_member')
                     ->label('Image')
                     ->required()

@@ -3,7 +3,7 @@
         <div class="faq-title my-4 text-3xl text-center font-bold stagger">
             <h1>FREQUENTLY ASKED QUESTIONS</h1>
         </div>
-        <div class="faq-content">
+        <div class="faq-content min-h-96">
             @foreach ($questAns as $question)
                 @if ($questAns->isEmpty())
                     <div

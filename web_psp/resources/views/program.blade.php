@@ -3,7 +3,7 @@
     <!-- Container utama dengan padding dan margin -->
     <!-- Judul utama program -->
     <div
-        class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 px-10 bg-slate-500 h-72 ">
+        class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 lg:px-10 bg-slate-500 h-72 ">
         <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
     </div>
     <div class="container program-page py-2 lg:px-28 bg-slate-100">
@@ -39,183 +39,268 @@
                 @endforeach
             </div>
 
+            <!-- Modal untuk gambar besar -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage">
+                <div class="caption" id="modalCaption"></div>
+            </div>
+
             <!-- Bagian A: Subkoor Penyuluhan -->
-            <div class="penyuluhan mx-20">
+            <div class="penyuluhan mx-5 lg:mx-20">
                 <!-- Judul seksi penyuluhan -->
-                <div class="penyuluhan-title p-5">
+                <div class="penyuluhan-title p-5 text-xl fade-up">
                     <strong>
                         <h2>A. Subkoor Penyuluhan</h2>
                     </strong>
                 </div>
                 <div class="penyuluhan-content">
-                    <!-- Container program penyuluhan dengan flex layout -->
-                    <div class="penyuluhan-program lg:flex justify-evenly ">
-                        <!-- Card program Ngopi Tani -->
-                        <div class="ngopi-tani w-fit bg-slate-200 p-5 rounded-lg mb-4">
-                            <!-- Container gambar dengan rounded corner -->
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/ngopi-tani.png') }}" alt="saung penyuluh"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
-                            </div>
+                    @if ($penyuluhan->isEmpty())
+                        <div class="text-center text-gray-500 text-lg mt-5 fade-up">
+                            <p>Belum ada program yang dibagikan.</p>
+                        </div>
+                    @else
+                        <!-- Container program penyuluhan dengan flex layout -->
+                        @foreach ($penyuluhan as $penyuluh)
+                            @php
+                                $hasImage = !empty($penyuluh->gambar);
+                                $hasTitle = !empty($penyuluh->judul);
+                                $hasTime = !empty($penyuluh->waktu);
+                            @endphp
 
-                            <!-- Modal untuk gambar besar -->
-                            <div id="imageModal" class="modal">
-                                <span class="close" onclick="closeModal()">&times;</span>
-                                <img class="modal-content" id="modalImage">
-                                <div class="caption" id="modalCaption"></div>
-                            </div>
+                            @if (!$hasImage)
+                                <div class="title-program my-5 text-lg font-bold fade-up">
+                                    <h2>{{ $penyuluh->judul }}</h2>
+                                </div>
+                            @endif
 
-                            <!-- Konten program Ngopi Tani -->
-                            <div class="ngopi-content text-center mt-2">
-                                <p><strong>Ngopi Tani</strong></p>
-                                <p>(Ngobrol Pintar Pertanian)</p>
-                                <!-- Indikator waktu dengan ikon -->
-                                <div class="info-time text-green-500 flex justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15"
-                                        fill="#6dff56">
-                                        <path
-                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                    </svg>
-                                    <p>Setiap hari Jumat</p>
+                            @if ($hasImage)
+                                <div class="penyuluhan-program lg:flex justify-evenly">
+                                    <div class="card-program w-fit bg-slate-200 p-5 rounded-lg mb-4">
+                                        <div class="image-container rounded-md overflow-hidden fade-up">
+                                            <img src="{{ asset('storage/' . $penyuluh->gambar) }}"
+                                                alt="{{ $penyuluh->judul }}" class="rounded-md hover:zoom"
+                                                width="800" onclick="openModal(this)">
+                                        </div>
+
+                                        <div class="content text-center mt-2 fade-up">
+                                            <p><strong>{{ $penyuluh->judul }}</strong></p>
+                                            @if ($hasTime)
+                                                <div class="info-time text-green-500 flex justify-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        width="15" fill="#6dff56">
+                                                        <path
+                                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                                                    </svg>
+                                                    <p>{{ $penyuluh->waktu }}</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="deskripsi-penyuluhan lg:mx-9 mt-5 tracking-wider text-justify leading-loose">
+                                <div class="deskripsi fade-up">
+                                    <p>{!! $penyuluh->deskripsi !!}</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Card program Saung Penyuluh -->
-                        <div class="saung w-fit bg-slate-200 p-5 rounded-lg overflow-hidden mb-4">
-                            <!-- Container gambar dengan rounded corner -->
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/saung-penyuluh.png') }}" alt="saung penyuluh"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
-                            </div>
-
-
-
-                            <!-- Konten program Saung Penyuluh -->
-                            <div class="saung-content text-center mt-2">
-                                <p><strong>Saung Penyuluh</strong></p>
-                                <p>(Sinahu Bareng Penyuluh Pertanian)</p>
-                                <!-- Indikator waktu dengan ikon -->
-                                <div class="info-time text-green-500 flex justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15"
-                                        fill="#6dff56">
-                                        <path
-                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                    </svg>
-                                    <p>Setiap hari Selasa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Seksi sasaran penyuluhan -->
-                    <div class="sasaran-penyuluhan mx-9 mt-5">
-                        <div class="title-sasaran">
-                            <strong>
-                                <h2>Sasaran</h2>
-                            </strong>
-                        </div>
-                        <!-- Konten sasaran 1: Peningkatan Kelas -->
-                        <div class="sasaran-content my-2">
-                            <h3 class="text-lg">1. Peningkatan Kelas Kelompok Tani</h3>
-                            <p>Strategi : </p>
-                            <img src="{{ asset('assets/strategi peningkatan kelas tani.png') }}"
-                                alt="strategi peningkatan kelas tani">
-                        </div>
-                        <!-- Konten sasaran 2: Peningkatan Pengetahuan -->
-                        <div class="sasaran-content my-10">
-                            <h3 class="text-lg">2. Peningkatan Pengetahuan dan Keterampilan PPL</h3>
-                            <p>Strategi : Temu Teknis Penyuluh</p>
-                            <img src="{{ asset('assets/tahapan saung tani.png') }}"
-                                alt="strategi peningkatan kelas tani">
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
+
             <!-- Bagian B: Subkoor Sarana dan Prasarana -->
-            <div class="sarpras mx-20">
+            <div class="sarpras mx-5 lg:mx-20">
                 <!-- Judul seksi sarpras -->
-                <div class="sarpras-title p-5">
+                <div class="sarpras-title p-5 fade-up">
                     <strong>
-                        <h2>B. Subkoor Sarana dan Prasarana</h2>
+                        <h2>B. Subkoor Pembiayaan Lahan Air</h2>
                     </strong>
                 </div>
 
                 <div class="sarpras-content">
                     <!-- Container program sarpras dengan flex layout -->
-                    <div class="sarpras-program lg:flex justify-evenly ">
-                        <!-- Card program Sawah Digital -->
-                        <div class="sawah-digital w-fit bg-slate-200 p-5 rounded-lg ">
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/sawah-digital.jpg') }}" alt="Sawah Digital"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
-                            </div>
-                            <div class="sawah-digital-content text-center mt-2">
-                                <p><strong>Sawah Digital</strong></p>
-                            </div>
+                    @if ($pla->isEmpty())
+                        <div class="text-center text-gray-500 text-lg mt-5 fade-up">
+                            <p>Belum ada program yang dibagikan.</p>
                         </div>
-                        <!-- Card program Smart Farming -->
-                        <div class="smart-farming w-fit bg-slate-200 p-5 rounded-lg ">
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/smart-farming.png') }}" alt="Smart Farming"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
+                    @else
+                        <!-- Container program penyuluhan dengan flex layout -->
+                        @foreach ($pla as $pla)
+                            @php
+                                $hasImage = !empty($pla->gambar);
+                                $hasTitle = !empty($pla->judul);
+                                $hasTime = !empty($pla->waktu);
+                            @endphp
+
+                            @if (!$hasImage)
+                                <div class="title-program my-5 text-lg font-bold fade-up">
+                                    <h2>{{ $pla->judul }}</h2>
+                                </div>
+                            @endif
+
+                            @if ($hasImage)
+                                <div class="pla-program lg:flex justify-evenly">
+                                    <div class="card-program w-fit bg-slate-200 p-5 rounded-lg mb-4">
+                                        <div class="image-container rounded-md overflow-hidden fade-up">
+                                            <img src="{{ asset('storage/' . $pla->gambar) }}" alt="{{ $pla->judul }}"
+                                                class="rounded-md hover:zoom" width="800" onclick="openModal(this)">
+                                        </div>
+
+                                        <div class="content text-center mt-2 fade-up">
+                                            <p><strong>{{ $pla->judul }}</strong></p>
+                                            @if ($hasTime)
+                                                <div class="info-time text-green-500 flex justify-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        width="15" fill="#6dff56">
+                                                        <path
+                                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                                                    </svg>
+                                                    <p>{{ $pla->waktu }}</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="deskripsi-pla mx-9 mt-5 tracking-wider text-justify leading-loose">
+                                <div class="deskripsi fade-up">
+                                    <p>{!! $pla->deskripsi !!}</p>
+                                </div>
                             </div>
-                            <div class="smart-farming-content text-center mt-2">
-                                <p><strong>Smart Farming</strong></p>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
             <!-- Bagian C: Subkoor Pupuk dan Pestisida -->
-            <div class="pupuk-pestisida mx-20 mb-5  ">
+            <div class="pupuk-pestisida mx-5 lg:mx-20 mb-5  ">
                 <!-- Judul seksi pupuk dan pestisida -->
-                <div class="pupuk-pestisida-title p-5">
+                <div class="pupuk-pestisida-title p-5 fade-up">
                     <strong>
                         <h2>C. Subkoor Pupuk dan Pestisida</h2>
                     </strong>
                 </div>
                 <div class="pupuk-pestisida-content">
                     <!-- Container program pupuk dengan flex layout -->
-                    <div class="pupuk-program lg:flex justify-evenly ">
-                        <!-- Card program Si Puber -->
-                        <div class="puber w-fit bg-slate-200 p-5 rounded-lg ">
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/pupuk-subsidi.png') }}" alt="Si Puber"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
-                            </div>
-                            <div class="sawah-digital-content text-center mt-2">
-                                <p><strong>Si Puber</strong></p>
-                            </div>
+                    @if ($pupuk->isEmpty())
+                        <div class="text-center text-gray-500 text-lg mt-5 fade-up">
+                            <p>Belum ada program yang dibagikan.</p>
                         </div>
-                        <!-- Card program Go Organik -->
-                        <div class="organik w-fit bg-slate-200 p-5 rounded-lg ">
-                            <div class="image-container rounded-md overflow-hidden">
-                                <img src="{{ asset('assets/go-organik.png') }}" alt="Go Organik"
-                                    class="rounded-md hover:zoom" width="400" height="200"
-                                    onclick="openModal(this)">
+                    @else
+                        <!-- Container program penyuluhan dengan flex layout -->
+                        @foreach ($pupuk as $pupuk)
+                            @php
+                                $hasImage = !empty($pupuk->gambar);
+                                $hasTitle = !empty($pupuk->judul);
+                                $hasTime = !empty($pupuk->waktu);
+                            @endphp
+
+                            @if (!$hasImage)
+                                <div class="title-program my-5 text-lg font-bold fade-up">
+                                    <h2>{{ $pupuk->judul }}</h2>
+                                </div>
+                            @endif
+
+                            @if ($hasImage)
+                                <div class="pupuk-program lg:flex justify-evenly">
+                                    <div class="card-program w-fit bg-slate-200 p-5 rounded-lg mb-4">
+                                        <div class="image-container rounded-md overflow-hidden fade-up">
+                                            <img src="{{ asset('storage/' . $pupuk->gambar) }}"
+                                                alt="{{ $pupuk->judul }}" class="rounded-md hover:zoom" width="800"
+                                                onclick="openModal(this)">
+                                        </div>
+
+                                        <div class="content text-center mt-2 fade-up">
+                                            <p><strong>{{ $pupuk->judul }}</strong></p>
+                                            @if ($hasTime)
+                                                <div class="info-time text-green-500 flex justify-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        width="15" fill="#6dff56">
+                                                        <path
+                                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                                                    </svg>
+                                                    <p>{{ $pupuk->waktu }}</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="deskripsi-pupuk mx-9 mt-5 tracking-wider text-justify leading-loose">
+                                <div class="deskripsi fade-up">
+                                    <p>{!! $pupuk->deskripsi !!}</p>
+                                </div>
                             </div>
-                            <div class="organik-content text-center mt-2">
-                                <p><strong>Go Organik</strong></p>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
-            <div class="alsintan mx-20 mb-20">
+            <div class="alsintan mx-5 lg:mx-20 mb-20">
                 <!-- Judul seksi pupuk dan pestisida -->
-                <div class="alsintan-title p-5">
+                <div class="alsintan-title p-5 fade-up">
                     <strong>
                         <h2>D. Subkoor Alat dan Mesin Pertanian</h2>
                     </strong>
+                </div>
+                <div class="alsintan-content">
+                    @if ($alsinta->isEmpty())
+                        <div class="text-center text-gray-500 text-lg mt-5 fade-up">
+                            <p>Belum ada program yang dibagikan.</p>
+                        </div>
+                    @else
+                        <!-- Container program penyuluhan dengan flex layout -->
+                        @foreach ($alsinta as $alsinta)
+                            @php
+                                $hasImage = !empty($alsinta->gambar);
+                                $hasTitle = !empty($alsinta->judul);
+                                $hasTime = !empty($alsinta->waktu);
+                            @endphp
+
+                            @if (!$hasImage)
+                                <div class="title-program my-5 text-lg font-bold fade-up">
+                                    <h2>{{ $alsinta->judul }}</h2>
+                                </div>
+                            @endif
+
+                            @if ($hasImage)
+                                <div class="alsinta-program lg:flex justify-evenly">
+                                    <div class="card-program w-fit bg-slate-200 p-5 rounded-lg mb-4">
+                                        <div class="image-container rounded-md overflow-hidden fade-up">
+                                            <img src="{{ asset('storage/' . $alsinta->gambar) }}"
+                                                alt="{{ $alsinta->judul }}" class="rounded-md hover:zoom"
+                                                width="800" onclick="openModal(this)">
+                                        </div>
+
+                                        <div class="content text-center mt-2 fade-up">
+                                            <p><strong>{{ $alsinta->judul }}</strong></p>
+                                            @if ($hasTime)
+                                                <div class="info-time text-green-500 flex justify-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                        width="15" fill="#6dff56">
+                                                        <path
+                                                            d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                                                    </svg>
+                                                    <p>{{ $alsinta->waktu }}</p>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="deskripsi-alsinta mx-9 mt-5 tracking-wider text-justify leading-loose">
+                                <div class="deskripsi fade-up">
+                                    <p>{!! $alsinta->deskripsi !!}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 

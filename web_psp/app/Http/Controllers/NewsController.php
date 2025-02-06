@@ -24,11 +24,11 @@ class NewsController extends Controller
 
     public function indexWelcome()
     {
-        $profilebidang = Information::findOrFail(1);
-        $prog = Program::all();
-        $kepalaBidangStaffs = MemberData::findOrFail(1);
-        $staff = MemberData::where('position_member', 'Kepala Seksi')->get();
-        $news = News::orderBy('created_at', 'desc')->take(10)->get();
+        $profilebidang = Information::where('name', 'Profile')->first() ?? null;
+        $prog = Program::all() ?? collect([]);
+        $kepalaBidangStaffs = MemberData::where('position_member', 'Kepala Bidang')->first() ?? null;
+        $staff = MemberData::where('position_member', 'Kepala Seksi')->get() ?? collect([]);
+        $news = News::orderBy('created_at', 'desc')->take(10)->get() ?? collect([]);
         return view('welcome', compact('news', 'staff', 'kepalaBidangStaffs', 'profilebidang', 'prog'));
     }
 

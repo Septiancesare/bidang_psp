@@ -21,7 +21,8 @@
 
                     {{-- image-container  --}}
                     <div class="image-news lg:mx-40 flex justify-center w-auto">
-                        <img src="{{ asset('storage/' . $newsItem->image_news) }}" alt="" class="rounded-md">
+                        <img src="{{ asset('storage/' . $newsItem->image_news) }}" alt="{{ $newsItem->title_news }}"
+                            class="rounded-md">
                     </div>
 
                     <br>

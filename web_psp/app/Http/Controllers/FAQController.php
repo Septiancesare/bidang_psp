@@ -9,7 +9,7 @@ class FAQController extends Controller
 {
     public function index()
     {
-        $questAns = Faq::all();
+        $questAns = Faq::all() ?? null;
         return view('faq', compact('questAns'));
     }
 }

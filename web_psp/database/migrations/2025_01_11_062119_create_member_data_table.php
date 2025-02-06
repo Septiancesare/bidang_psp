@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_member');
             $table->string('name_member');
             $table->string('position_member');
+            $table->string('division_member')->nullable();
             $table->string('image_member');
             $table->timestamps();
         });

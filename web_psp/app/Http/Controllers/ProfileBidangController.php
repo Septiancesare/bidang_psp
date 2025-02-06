@@ -10,14 +10,15 @@ class ProfileBidangController extends Controller
 {
     public function index()
     {
-        $kepalaBidangStaff = MemberData::findOrFail(1);
-        $profilebidang = Information::findOrFail(1);
-        $visi = Information::findOrFail(2);
-        $misi = Information::findOrFail(3);
+
+        $profilebidang = Information::where('name', 'Profile')->first() ?? null;
+        $visi = Information::where('name', 'Visi')->first() ?? null;
+        $misi = Information::where('name', 'Misi')->first() ?? null;
 
 
-        $kasi = MemberData::where('position_member', 'Kepala Seksi')->get();
-        $staff = MemberData::where('position_member', 'Staff')->get();
+        $staff = MemberData::where('position_member', 'Staff')->get() ?? collect([]);
+        $kasi = MemberData::where('position_member', 'Kepala Seksi')->get() ?? collect([]);
+        $kepalaBidangStaff = MemberData::where('position_member', 'Kepala Bidang')->first() ?? null;
         return view('profile-bidang', compact('staff', 'kasi', 'kepalaBidangStaff', 'profilebidang', 'visi', 'misi'));
     }
 }

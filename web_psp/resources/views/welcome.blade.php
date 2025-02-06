@@ -42,15 +42,21 @@
                 <header class="font-bold " id="profile-bidang fade-up">
                     <h1 class="profile-header text-lg text-slate-500 tracking-widest">Profile</h1>
                     <h2 class="profile-bidang-header text-3xl text-green-900 tracking-wider">Bidang Penyuluhan, Sarana,
-                        dan
-                        Prasarana
-                        Pertanian</h2>
+                        dan Prasarana Pertanian</h2>
                     <h3 class="profile-dinas-header text-2xl text-green-900 tracking-wider">Dinas Pertanian Kabupaten
                         Grobogan</h3>
                 </header>
-                <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7 fade-up">
-                    {!! $profilebidang->description !!}
-                </div>
+                @if (!$profilebidang || !$profilebidang->description)
+                    <div
+                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
+                        <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                        <p>Belum ada Data yang dibagikan.</p>
+                    </div>
+                @else
+                    <div class="content-profile tracking-widest text-justify lg:mx-56 my-10 leading-7 fade-up">
+                        {!! $profilebidang->description !!}
+                    </div>
+                @endif
             </div>
 
             {{-- section image program in home page  --}}
@@ -63,25 +69,36 @@
             </div>
 
             <div class="program my-3 lg:mx-56">
-                @php
-                    $chunks = $prog->chunk(4);
-                @endphp
-
-                @foreach ($chunks as $chunk)
-                    <div class="line-break lg:flex justify-center gap-1 mb-1 stagger">
-                        @foreach ($chunk as $program)
-                            <div class="program-card">
-                                <div class="image-container overflow-hidden">
-                                    <img src="{{ asset('storage/' . $program->image_program) }}"
-                                        alt="{{ $program->name_program }}" class="hover:zoom" width="400"
-                                        height="200"
-                                        onclick="openModal(this, {{ $loop->parent->index * 4 + $loop->index }})">
-                                </div>
-                            </div>
-                        @endforeach
+                @if ($prog->isEmpty())
+                    <div
+                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
+                        <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                        <p>Belum ada Data Program yang dibagikan.</p>
                     </div>
-                @endforeach
+                @else
+                    @php
+                        $chunks = $prog->chunk(4);
+                    @endphp
+
+                    @foreach ($chunks as $chunk)
+                        <div class="line-break lg:flex justify-center gap-1 mb-1 stagger">
+                            @foreach ($chunk as $program)
+                                <div class="program-card">
+                                    <div class="image-container overflow-hidden">
+                                        @if ($program->image_program)
+                                            <img src="{{ asset('storage/' . $program->image_program) }}"
+                                                alt="{{ $program->name_program }}" class="hover:zoom" width="400"
+                                                height="200"
+                                                onclick="openModal(this, {{ $loop->parent->index * 4 + $loop->index }})">
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                @endif
             </div>
+
 
 
             <div class="button-more-program flex justify-center stagger">
@@ -93,39 +110,59 @@
     </div>
 
     {{-- Section for company Management  --}}
-    <div class="management-bidang text-center my-28 ">
+    <div class="management-bidang text-center my-28">
         <header>
-            <h2 class="management-bidang-header text-3xl text-green-900 font-bold fade-up">Tata Kelola Bidang PSP</h2>
+            <h2 class="management-bidang-header text-3xl text-green-900 font-bold fade-up">
+                Tata Kelola Bidang PSP
+            </h2>
         </header>
-        <div class="management-bidang-content ">
-            {{-- card pimpinan --}}
+        <div class="management-bidang-content">
+
+
+            {{-- Card Pimpinan --}}
             <div class="management-line flex justify-center fade-up">
-                <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
-                    <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}" alt="">
-                    <div class="card-management-info text-center mt-4">
-                        <h2 class="font-bold">
-                            {{ $kepalaBidangStaffs->name_member }}
-                        </h2>
-                        <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
-                    </div>
-                </div>
-            </div>
-
-
-            {{-- Card staff line 3  --}}
-            <div class="management-line flex flex-wrap justify-center gap-10">
-                @foreach ($staff as $person)
-                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 stagger">
-                        <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
+                @if ($kepalaBidangStaffs)
+                    <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72">
+                        <img src="{{ asset('storage/' . $kepalaBidangStaffs->image_member) }}"
+                            alt="{{ $kepalaBidangStaffs->name_member }}">
                         <div class="card-management-info text-center mt-4">
-                            <h2 class="font-bold">
-                                {{ $person->name_member }}
-                            </h2>
-                            <p>{{ $person->position_member }}</p>
+                            <h2 class="font-bold">{{ $kepalaBidangStaffs->name_member }}</h2>
+                            <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
                         </div>
                     </div>
-                @endforeach
+                @else
+                    <div
+                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
+                        <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                        <p>Belum ada data pimpinan yang tersedia.</p>
+                    </div>
+                @endif
             </div>
+
+            {{-- Card Staff --}}
+            <div class="management-line flex flex-wrap justify-center gap-10">
+                @if ($staff->isNotEmpty())
+                    @foreach ($staff as $person)
+                        <div class="card-management flex justify-center flex-col shadow-lg p-5 w-72 stagger">
+                            <img src="{{ asset('storage/' . $person->image_member) }}" alt="">
+                            <div class="card-management-info text-center mt-4">
+                                <h2 class="font-bold">
+                                    {{ $person->name_member }}
+                                </h2>
+                                <p>{{ $person->position_member }}</p>
+                                <p>{{ $person->division_member }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div
+                        class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
+                        <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                        <p>Belum ada data staf yang tersedia.</p>
+                    </div>
+                @endif
+            </div>
+
         </div>
     </div>
 
@@ -135,44 +172,46 @@
         <header class="font-bold">
             <h2 class="news-bidang-header text-3xl text-green-900 stagger">Berita Terkini</h2>
         </header>
-        <div class="news-container lg:mx-20 flex flex-col gap-2 p-5 ">
-
-            {{-- News Card  --}}
-            @foreach ($news as $item)
-                <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
-                    <div
-                        class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md transition duration-300 stagger">
-                        <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
-                            class="rounded-md lg:w-[250px] lg:h-[150px]  object-cover">
-                        <div class="news-card-info">
-                            <div class="title-news-card lg:text-xl">
-                                <h2>{{ $item->title_news }}</h2>
-                            </div>
-                            <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
-                                {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
-                            </div>
-                            <div class="date-news flex items-center gap-3">
-                                <div class="news-admin flex gap-2 text-gray-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="13">
-                                        <path
-                                            d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
-                                    </svg>
-                                    <p>Admin</p>
+        <div class="news-container lg:mx-20 flex flex-col gap-2 p-5">
+            @if ($news->isEmpty())
+                <div class="text-center text-gray-500 text-lg flex justify-center items-center flex-col gap-4 fade-up">
+                    <img src="{{ asset('assets/finding-file.png') }}" alt="Finding File" class="w-1/4 opacity-40">
+                    <p>Belum ada berita yang tersedia.</p>
+                </div>
+            @else
+                @foreach ($news as $item)
+                    @if ($item->news_id)
+                        <a href="{{ route('news-page.read', ['id' => $item->news_id]) }}">
+                            <div
+                                class="news-card w-full bg-slate-50 p-3 flex flex-col lg:flex-row text-start gap-3 shadow-xl hover:bg-green-100 rounded-md transition duration-300 stagger">
+                                @if ($item->image_news)
+                                    <img src="{{ asset('storage/' . $item->image_news) }}" alt="news pict"
+                                        class="rounded-md lg:w-[250px] lg:h-[150px] object-cover">
+                                @endif
+                                <div class="news-card-info">
+                                    <div class="title-news-card lg:text-xl">
+                                        <h2>{{ $item->title_news }}</h2>
+                                    </div>
+                                    <div class="news-snippet text-gray-500 lg:text-xl font-thin py-2">
+                                        {{ Str::limit(strip_tags($item->content_news), 150, '...') }}
+                                    </div>
+                                    <div class="date-news flex items-center gap-3">
+                                        <div class="news-admin flex gap-2 text-gray-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                width="13">
+                                                <path
+                                                    d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z" />
+                                            </svg>
+                                            <p>Admin</p>
+                                        </div>
+                                        <p class="text-green-500 text-sm">{{ $item->created_at->format('Y-m-d') }}</p>
+                                    </div>
                                 </div>
-                                <p class="text-green-500 text-sm ">{{ $item->created_at->format('Y-m-d') }}</p>
                             </div>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
-
-            <div class="button-more-news flex justify-center stagger">
-                <a href="{{ route('news.index') }}"
-                    class="w-auto p-4 my-3 border-2 border-green-600 rounded-3xl text-green-600 hover:bg-green-600 hover:text-white transition duration-300 hover:bg-gradient-to-t from-black/50 to-transparent">Berita
-                    Selengkapnya</a>
-            </div>
-
-
+                        </a>
+                    @endif
+                @endforeach
+            @endif
         </div>
     </div>
 </x-app-layout>

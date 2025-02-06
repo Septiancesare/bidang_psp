@@ -20,8 +20,5 @@ class News extends Model
 
     ];
 
-    public function newsComment()
-    {
-        return $this->hasMany(NewsComment::class);
-    }
+    
 }

@@ -15,6 +15,7 @@ class MemberData extends Model
         'id_member',
         'name_member',
         'image_member',
+        'division_member',
         'position_member',
     ];
 
