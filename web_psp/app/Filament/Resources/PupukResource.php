@@ -8,6 +8,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use App\Models\PupukPestisida;
 use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PupukResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -55,7 +56,11 @@ class PupukResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('judul')
+                    ->label('Name Program')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('updated_at')->sortable(),
             ])
             ->filters([
                 //

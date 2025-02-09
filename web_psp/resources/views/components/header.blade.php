@@ -162,13 +162,14 @@
         </ul>
 
         <script>
+            //skrip untuk dropdown
             document.addEventListener('DOMContentLoaded', () => {
                 const menuToggle = document.getElementById('menu-toggle');
                 const mobileMenu = document.getElementById('mobile-menu');
                 const mobileMenuClose = document.getElementById('mobile-menu-close');
-                const profileDropdown = document.querySelector('.profile-dropdown');
-                const profileSubmenu = profileDropdown.querySelector('ul');
-                const profileToggle = profileDropdown.querySelector('a');
+
+                // Get all dropdowns instead of just one
+                const dropdowns = document.querySelectorAll('.profile-dropdown');
 
                 // Open mobile menu
                 menuToggle.addEventListener('click', () => {
@@ -178,22 +179,40 @@
                 // Close mobile menu
                 mobileMenuClose.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
-                    // Reset profile submenu
-                    profileSubmenu.classList.add('hidden');
-                    const svg = profileToggle.querySelector('svg');
-                    svg.style.transform = 'rotate(0deg)';
+                    // Reset all submenus when closing mobile menu
+                    dropdowns.forEach(dropdown => {
+                        const submenu = dropdown.querySelector('ul');
+                        const svg = dropdown.querySelector('svg');
+                        if (submenu) submenu.classList.add('hidden');
+                        if (svg) svg.style.transform = 'rotate(0deg)';
+                    });
                 });
 
-                // Toggle profile submenu
-                profileToggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    profileSubmenu.classList.toggle('hidden');
+                // Add click handlers to all dropdowns
+                dropdowns.forEach(dropdown => {
+                    const toggle = dropdown.querySelector('a');
+                    const submenu = dropdown.querySelector('ul');
+                    const svg = toggle.querySelector('svg');
 
-                    // Rotate dropdown icon
-                    const svg = profileToggle.querySelector('svg');
-                    svg.style.transform = profileSubmenu.classList.contains('hidden') ?
-                        'rotate(0deg)' :
-                        'rotate(180deg)';
+                    toggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        submenu.classList.toggle('hidden');
+
+                        // Rotate dropdown icon
+                        svg.style.transform = submenu.classList.contains('hidden') ?
+                            'rotate(0deg)' :
+                            'rotate(180deg)';
+
+                        // Optional: Close other dropdowns when opening one
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                const otherSubmenu = otherDropdown.querySelector('ul');
+                                const otherSvg = otherDropdown.querySelector('svg');
+                                otherSubmenu.classList.add('hidden');
+                                otherSvg.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    });
                 });
             });
         </script>

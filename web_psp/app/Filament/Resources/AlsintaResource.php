@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AlsintaResource\Pages;
-use App\Filament\Resources\AlsintaResource\RelationManagers;
-use App\Models\AlatMesinPertanian;
-use App\Models\Alsinta;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Alsinta;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use App\Models\AlatMesinPertanian;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\AlsintaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\AlsintaResource\RelationManagers;
 
 class AlsintaResource extends Resource
 {
@@ -56,7 +57,11 @@ class AlsintaResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('judul')
+                    ->label('Name Program')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('updated_at')->sortable(),
             ])
             ->filters([
                 //

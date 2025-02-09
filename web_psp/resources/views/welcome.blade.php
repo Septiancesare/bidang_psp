@@ -3,15 +3,15 @@
     <div class="relative h-96  w-full overflow-hidden">
         <!-- Hero Images -->
         <div id="hero-slider" class="absolute inset-0">
-            <img src="{{ asset('assets/saung-penyuluh.png') }}" alt="Hero Image"
+            <img src="{{ asset('assets/sawah 3.png') }}" alt="Hero Image"
                 class="absolute h-full w-full object-cover transition-opacity duration-1000 opacity-100" data-index="1" />
-            <img src="{{ asset('assets/smart-farming.png') }}" alt="Second Image"
+            <img src="{{ asset('assets/sawah 2.png') }}" alt="Second Image"
                 class="absolute h-full w-full object-cover transition-opacity duration-1000 opacity-0" data-index="2" />
-            <img src="{{ asset('assets/sawah-digital.jpg') }}" alt="Third Image"
+            <img src="{{ asset('assets/sawah 6.png') }}" alt="Third Image"
                 class="absolute h-full w-full object-cover transition-opacity duration-1000 opacity-0" data-index="3" />
         </div>
         <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         <!-- Sliding Text -->
         <div id="text-slider" class="absolute inset-0 flex flex-col items-center justify-center text-center">
             <h1 class="text-white text-xl lg:text-5xl  font-bold transform transition-transform duration-1000 translate-y-0 opacity-100 carter-one-regular"

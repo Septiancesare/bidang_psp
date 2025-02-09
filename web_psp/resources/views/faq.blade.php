@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="faq-container mx-4 lg:mx-24 my-10">
-        <div class="faq-title my-4 text-3xl text-center font-bold stagger">
+        <div class="faq-title my-36 lg:my-4 text-3xl text-center font-bold stagger">
             <h1>FREQUENTLY ASKED QUESTIONS</h1>
         </div>
         <div class="faq-content min-h-96">

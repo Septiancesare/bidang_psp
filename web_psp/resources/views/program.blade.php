@@ -3,7 +3,7 @@
     <!-- Container utama dengan padding dan margin -->
     <!-- Judul utama program -->
     <div
-        class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 lg:px-10 bg-slate-500 h-72 ">
+        class="title sm:2xl md:text-5xl  flex justify-start items-end text-center text-bold py-5 lg:px-10 bg-slate-500 h-80 ">
         <h1><strong>PROGRAM UNGGULAN BIDANG PSP 2024</strong></h1>
     </div>
     <div class="container program-page py-2 lg:px-28 bg-slate-100">
@@ -310,7 +310,7 @@
 
 <style>
     .title {
-        background-image: url('/assets/smart-farming.png');
+        background-image: url('/assets/sawah 8.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -325,7 +325,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.70));
         z-index: 1;
 
     }

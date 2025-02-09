@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PenyuluhanResource\Pages;
-use App\Filament\Resources\PenyuluhanResource\RelationManagers;
-use App\Models\Penyuluhan;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\Penyuluhan;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PenyuluhanResource\Pages;
+use App\Filament\Resources\PenyuluhanResource\RelationManagers;
 
 class PenyuluhanResource extends Resource
 {
@@ -54,7 +55,11 @@ class PenyuluhanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('judul')
+                    ->label('Name Program')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('updated_at')->sortable(),
             ])
             ->filters([
                 //
