@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('downloads', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('file')->nullable()->change();
-            $table->string('size')->default('0 KB')->change();
+            $table->string('file')->nullable();
+            $table->string('size')->default('0 KB');
             $table->string('type');
             $table->timestamps();
         });

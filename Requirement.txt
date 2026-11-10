@@ -1,0 +1,17 @@
+user
+profile bidang (read)
+berita (read)
+informasi/pengumuman (read)
+file dibagikan (read)
+galeri foto (read)
+edit profile user
+buat akun
+login
+
+Admin
+profile bidang (CRUD)
+berita (CRUD)
+informasi/pengumuman (CRUD)
+file dibagikan (CRUD)
+galeri foto (CRUD)
+login

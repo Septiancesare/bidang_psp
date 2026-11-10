@@ -1,19 +1,21 @@
 <header id="main-header"
     class="fixed w-full top-0 z-50 transition-all duration-300 bg-white p-2  tracking-wider lg:flex justify-between lg:px-10 items-center bg-gradient-to-t from-green-50  to-transparent gap-10">
     <!-- Bagian header yang berisi logo dan judul utama -->
-    <div class="header flex justify-center gap-3 text-green-700  ">
-        <!-- Logo Kabupaten Grobogan -->
-        <div class="logo-kabupaten">
-            <img src="{{ asset('assets/Lambang_Grobogan.png') }}" alt="grobogan" class="h-12">
-        </div>
-        <!-- Bagian teks header, berisi judul dan deskripsi -->
-        <div class="header-text items-center border-l-2 px-5 text-sm">
-            <div class="header-title text-md">
-                <h1 class="font-bold">Bidang Penyuluhan Sarana dan Prasarana Pertanian</h1>
+    <a href="{{ route('welcome') }}">
+        <div class="header flex justify-center gap-3 text-green-700  ">
+            <!-- Logo Kabupaten Grobogan -->
+            <div class="logo-kabupaten">
+                <img src="{{ asset('assets/Lambang_Grobogan.png') }}" alt="grobogan" class="h-12">
             </div>
-            <p>Dinas Pertanian Kabupaten Grobogan</p>
+            <!-- Bagian teks header, berisi judul dan deskripsi -->
+            <div class="header-text items-center border-l-2 px-5 text-sm">
+                <div class="header-title text-md">
+                    <h1 class="font-bold">Bidang Penyuluhan Sarana dan Prasarana Pertanian</h1>
+                </div>
+                <p>Dinas Pertanian Kabupaten Grobogan</p>
+            </div>
         </div>
-    </div>
+    </a>
 
     {{-- navigasi halaman  --}}
     <div class="flex justify-between nav items-center md:justify-center h-10 text-black">
@@ -132,7 +134,8 @@
                 <div class="profile-dropdown">
                     <a href="#" class="flex justify-between items-center py-2 hover:bg-green-600 rounded">
                         <span>Info</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000" viewBox="0 0 320 512">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="#000000"
+                            viewBox="0 0 320 512">
                             <path
                                 d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
                         </svg>

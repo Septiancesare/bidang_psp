@@ -127,7 +127,7 @@
                             alt="{{ $kepalaBidangStaffs->name_member }}">
                         <div class="card-management-info text-center mt-4">
                             <h2 class="font-bold">{{ $kepalaBidangStaffs->name_member }}</h2>
-                            <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                            <p class=" text-slate-500">Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
                         </div>
                     </div>
                 @else
@@ -149,8 +149,9 @@
                                 <h2 class="font-bold">
                                     {{ $person->name_member }}
                                 </h2>
-                                <p>{{ $person->position_member }}</p>
-                                <p>{{ $person->division_member }}</p>
+
+                                <p class="text-slate-500">{{ $person->position_member }}</p>
+                                <p class="text-slate-500">{{ $person->division_member }}</p>
                             </div>
                         </div>
                     @endforeach

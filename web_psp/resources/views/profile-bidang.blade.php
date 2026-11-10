@@ -88,7 +88,8 @@
                                 <img src="{{ asset('storage/' . $kepalaBidangStaff->image_member) }}" alt="">
                                 <div class="card-management-info text-center mt-4">
                                     <h2 class="font-bold">{{ $kepalaBidangStaff->name_member }}</h2>
-                                    <p>Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian</p>
+                                    <p class="text-slate-500">Kepala Bidang Penyuluhan Sarana dan Prasarana Pertanian
+                                    </p>
                                 </div>
                             </div>
                         @else
@@ -109,8 +110,8 @@
                                     <img src="{{ asset('storage/' . $kasiMember->image_member) }}" alt="">
                                     <div class="card-management-info text-center mt-4">
                                         <h2 class="font-bold">{{ $kasiMember->name_member }}</h2>
-                                        <p>{{ $kasiMember->position_member }}</p>
-                                        <p>{{ $kasiMember->division_member }}</p>
+                                        <p class="text-slate-500">{{ $kasiMember->position_member }}</p>
+                                        <p class="text-slate-500">{{ $kasiMember->division_member }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -132,8 +133,8 @@
                                     <img src="{{ asset('storage/' . $staffMember->image_member) }}" alt="">
                                     <div class="card-management-info text-center mt-4">
                                         <h2 class="font-bold">{{ $staffMember->name_member }}</h2>
-                                        <p>{{ $staffMember->position_member }}</p>
-                                        <p>{{ $staffMember->division_member }}</p>
+                                        <p class="text-slate-500">{{ $staffMember->position_member }}</p>
+                                        <p class="text-slate-500">{{ $staffMember->division_member }}</p>
                                     </div>
                                 </div>
                             @endforeach

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="download-container min-h-screen">
 
-        <div class="header-download">
+        <div class="header-download mt-32 lg:mt-2">
             <div class="header-download-title text-center font-bold text-3xl my-5 fade-up">
                 <h1>DOWNLOAD</h1>
             </div>
@@ -51,6 +51,7 @@
                                                 'docs' => 'text-blue-500 border-blue-500',
                                                 'docx' => 'text-blue-500 border-blue-500',
                                                 'xls' => 'text-green-500 border-green-500',
+                                                'xlsx' => 'text-green-500 border-green-500',
                                                 'csv' => 'text-green-500 border-green-500',
                                                 'jpg' => 'text-yellow-500 border-yellow-500',
                                                 'jpeg' => 'text-yellow-500 border-yellow-500',

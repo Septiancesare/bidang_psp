@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="title-news-header text-center font-bold dm-serif-text-regular text-3xl my-5 fade-up">
+    <div class="title-news-header text-center font-bold dm-serif-text-regular mt-32 lg:mt-2 text-3xl my-5 fade-up">
         <h1>Berita Terkini PSP</h1>
     </div>
     <div class="search-container lg:mx-20 mb-5 px-5">
